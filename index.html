@@ -490,9 +490,11 @@
 
   /* Assinei e agora */
   .after-signup-section {
-    background: #f8f8f6;
+    background: #000;
     padding: 80px 40px;
   }
+  .after-signup-section .section-title { color: #fff }
+  .after-signup-section .section-subtitle { color: #999 }
   .steps-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -502,8 +504,8 @@
     margin: 48px auto 0;
   }
   .step-card {
-    background: #fff;
-    border: 1px solid #e5e5e5;
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
     border-radius: 16px;
     padding: 40px 32px 32px;
     text-align: center;
@@ -525,7 +527,8 @@
   .step-icon {
     width: 64px;
     height: 64px;
-    background: #fdf3e0;
+    background: rgba(212, 159, 50, 0.12);
+    border: 1px solid rgba(212, 159, 50, 0.3);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -535,12 +538,12 @@
   .step-title {
     font-size: 18px;
     font-weight: 700;
-    color: #111;
+    color: #fff;
     margin-bottom: 10px;
   }
   .step-desc {
     font-size: 14px;
-    color: #666;
+    color: #aaa;
     line-height: 1.6;
   }
   .step-arrow {
