@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F2 Sports — Gerencie sua escolinha do celular</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0 }
+  html { scroll-behavior: smooth }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #ffffff;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100% }
+  a { text-decoration: none; color: inherit }
+  button { font-family: inherit }
+
+  /* Navbar */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    height: 64px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px }
+  .nav-logo-circle {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #d49f32; color: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .nav-logo-text { color: #000; font-size: 17px; font-weight: 700 }
+  .nav-links { display: flex; gap: 32px }
+  .nav-links a { color: #555; font-size: 14px }
+  .nav-right { display: flex; align-items: center; gap: 20px }
+  .nav-right a.login { color: #888; font-size: 13px }
+  .btn-primary {
+    background: #d49f32; color: #000;
+    font-weight: 700; border-radius: 8px;
+    padding: 10px 22px; font-size: 14px;
+    border: none; cursor: pointer;
+    display: inline-block;
+  }
+
+  /* Hero */
+  .hero {
+    background: #fff;
+    padding: 100px 40px;
+    text-align: center;
+  }
+  .hero-badge {
+    background: #fdf3e0;
+    border: 1px solid #d49f32;
+    color: #a67c00;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 18px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.1;
+    max-width: 720px;
+    margin: 0 auto 20px;
+  }
+  .hero-subtitle {
+    font-size: 18px;
+    color: #666;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-hero-main {
+    background: #d49f32; color: #000;
+    font-weight: 700; font-size: 16px;
+    height: 54px; padding: 0 36px;
+    border-radius: 12px; border: none;
+    cursor: pointer;
+  }
+  .btn-hero-secondary {
+    background: #111; color: #fff;
+    font-size: 15px;
+    height: 54px; padding: 0 30px;
+    border-radius: 12px; border: none;
+    cursor: pointer;
+  }
+  .hero-disclaimer {
+    color: #999;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  /* Prova social */
+  .social-proof {
+    background: #f8f8f6;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 36px 40px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .stat-item { border-right: 1px solid #e5e5e5 }
+  .stat-item:last-child { border-right: none }
+  .stat-number { font-size: 32px; font-weight: 800; color: #d49f32 }
+  .stat-label { font-size: 12px; color: #888; margin-top: 4px }
+
+  /* Dor vs Solução */
+  .pain-section {
+    background: #fff;
+    padding: 80px 40px;
+  }
+  .section-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pain-card {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #991b1b;
+    font-weight: 500;
+  }
+  .solution-card {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #166534;
+    font-weight: 500;
+  }
+  .pain-arrow {
+    font-size: 32px;
+    color: #d49f32;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  /* Mockup */
+  .mockup-section {
+    background: #f8f8f6;
+    padding: 80px 40px;
+  }
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Funcionalidades */
+  .features-section {
+    background: #fff;
+    padding: 80px 40px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .feature-card {
+    background: #f8f8f6;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 28px;
+    transition: all .2s;
+  }
+  .feature-icon {
+    width: 52px; height: 52px;
+    background: #fdf3e0;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .feature-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+  }
+  .feature-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+
+  /* Depoimentos */
+  .testimonials-section {
+    background: #f8f8f6;
+    padding: 80px 40px;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 48px auto 0;
+  }
+  .testimonial-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .testimonial-stars {
+    color: #d49f32;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .testimonial-divider {
+    border-top: 1px solid #f0f0f0;
+    margin-bottom: 14px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #fdf3e0;
+    color: #a67c00;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .testimonial-name { font-weight: 700; font-size: 13px; color: #111 }
+  .testimonial-role { color: #888; font-size: 12px; margin-top: 2px }
+
+  /* Planos */
+  .plans-section {
+    background: #fff;
+    padding: 80px 40px;
+  }
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 48px auto 0;
+    align-items: start;
+  }
+  .plan-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 32px;
+    background: #fff;
+  }
+  .plan-card.featured {
+    border: 2px solid #d49f32;
+    position: relative;
+  }
+  .plan-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d49f32;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .plan-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 16px;
+  }
+  .plan-price {
+    font-size: 42px;
+    font-weight: 800;
+    color: #111;
+  }
+  .plan-card.featured .plan-price { color: #d49f32 }
+  .plan-price-period { font-size: 16px; color: #888; font-weight: 500 }
+  .plan-desc {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .plan-features li {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .plan-check { color: #d49f32; font-weight: 700 }
+  .plan-btn {
+    background: #111;
+    color: #fff;
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 28px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .plan-btn.gold {
+    background: #d49f32;
+    color: #000;
+  }
+  .plans-footer {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+
+  /* FAQ */
+  .faq-section {
+    background: #f8f8f6;
+    padding: 80px 40px;
+  }
+  .faq-container {
+    max-width: 640px;
+    margin: 40px auto 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px 0;
+  }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .faq-question-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+  }
+  .faq-arrow {
+    font-size: 18px;
+    color: #d49f32;
+    transition: transform .2s;
+  }
+  .faq-answer {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    padding-top: 12px;
+    display: none;
+  }
+
+  /* CTA final */
+  .cta-final {
+    background: #d49f32;
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .cta-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #000;
+  }
+  .cta-subtitle {
+    font-size: 16px;
+    color: #5a3a00;
+    margin-top: 12px;
+  }
+  .cta-btn {
+    background: #000;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    height: 58px;
+    padding: 0 44px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 32px;
+  }
+  .cta-link {
+    color: #a67c00;
+    font-size: 13px;
+    margin-top: 18px;
+    display: block;
+  }
+
+  /* Footer */
+  .footer {
+    background: #111;
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-logo-circle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #d49f32;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 11px;
+  }
+  .footer-copy {
+    color: #666;
+    font-size: 12px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    color: #666;
+    font-size: 12px;
+  }
+
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .nav-links { display: none }
+    .hero { padding: 60px 20px }
+    .hero-title { font-size: 36px }
+    .hero-subtitle { font-size: 15px }
+    .stats-grid { grid-template-columns: repeat(2, 1fr) }
+    .stat-item:nth-child(2) { border-right: none }
+    .pain-grid { grid-template-columns: 1fr }
+    .pain-arrow { display: none }
+    .mockup-grid { grid-template-columns: 1fr }
+    .mockup-mobile { display: none }
+    .features-grid { grid-template-columns: 1fr }
+    .testimonials-grid { grid-template-columns: 1fr }
+    .plans-grid { grid-template-columns: 1fr }
+    .faq-container { padding: 0 16px }
+    section { padding: 60px 20px }
+    .navbar { padding: 0 20px }
+    .footer { flex-direction: column; gap: 16px; text-align: center }
+    .section-title { font-size: 28px }
+    .cta-title { font-size: 30px }
+  }
+</style>
+</head>
+<body>
+
+<!-- SEÇÃO 1 — Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-circle">F2</div>
+    <span class="nav-logo-text">F2 Sports</span>
+  </div>
+  <div class="nav-links">
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#planos">Planos</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://sistemaf2sports.com.br/sign-in" class="login">Ja tenho conta</a>
+    <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar →</button>
+  </div>
+</nav>
+
+<!-- SEÇÃO 2 — Hero -->
+<section class="hero">
+  <div class="hero-badge">✦ Sistema completo para escolinhas esportivas</div>
+  <h1 class="hero-title">Chega de caderno.<br>Gerencie sua escolinha <span style="color:#d49f32">do celular.</span></h1>
+  <p class="hero-subtitle">Alunos, turmas, cobrancas PIX, presenca e WhatsApp — tudo em um so lugar. Configure em 10 minutos.</p>
+  <div class="hero-buttons">
+    <button class="btn-hero-main" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar agora →</button>
+    <button class="btn-hero-secondary" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">Ver como funciona</button>
+  </div>
+  <p class="hero-disclaimer">Sem cartao de credito · 14 dias gratis · Cancele quando quiser</p>
+</section>
+
+<!-- SEÇÃO 3 — Prova social -->
+<section class="social-proof">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">+50</div>
+      <div class="stat-label">escolinhas ativas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+500</div>
+      <div class="stat-label">alunos gerenciados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">satisfacao</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10min</div>
+      <div class="stat-label">para configurar</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 4 — Dor vs Solução -->
+<section class="pain-section" id="como-funciona">
+  <h2 class="section-title">Reconhece alguma dessas situacoes?</h2>
+  <p class="section-subtitle">Se sim, o F2 Sports foi feito exatamente para voce.</p>
+  <div class="pain-grid">
+    <div>
+      <div class="pain-card">✗ Caderno cheio de nomes, valores e datas</div>
+      <div class="pain-card">✗ Planilha que so voce entende</div>
+      <div class="pain-card">✗ Cobrar aluno por aluno no WhatsApp toda semana</div>
+      <div class="pain-card">✗ Esquecer quem pagou e quem ainda deve</div>
+    </div>
+    <div class="pain-arrow">→</div>
+    <div>
+      <div class="solution-card">✓ Todos os alunos organizados em segundos</div>
+      <div class="solution-card">✓ Cobranca PIX gerada automaticamente todo mes</div>
+      <div class="solution-card">✓ WhatsApp com mensagem pronta — 1 clique</div>
+      <div class="solution-card">✓ Dashboard mostra quem pagou em tempo real</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 5 — Mockup -->
+<section class="mockup-section">
+  <h2 class="section-title">Veja o sistema funcionando</h2>
+  <p class="section-subtitle">Simples como usar o WhatsApp. Poderoso como um sistema profissional.</p>
+  <div class="mockup-grid">
+    <!-- Mockup Desktop -->
+    <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 8px 32px rgba(0,0,0,0.08)">
+      <div style="background:#1a1a1a;padding:10px 16px;display:flex;align-items:center;gap:8px">
+        <div style="width:10px;height:10px;border-radius:50%;background:#ef4444"></div>
+        <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b"></div>
+        <div style="width:10px;height:10px;border-radius:50%;background:#22c55e"></div>
+        <div style="flex:1;background:#2a2a2a;border-radius:4px;padding:4px 12px;margin-left:8px;font-size:11px;color:#666;font-family:monospace">sistemaf2sports.com.br/dashboard</div>
+      </div>
+      <div style="background:#f8f8f6;padding:16px">
+        <div style="background:#000;border-radius:8px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:24px;height:24px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#000">F2</div>
+            <span style="color:#fff;font-size:12px;font-weight:600">F2 Sports</span>
+          </div>
+          <span style="color:#d49f32;font-size:11px;font-weight:500">ABF Cascavel</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
+          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
+            <div style="font-size:9px;color:#888">Mensalidades</div>
+            <div style="font-size:14px;font-weight:700;color:#111">R$ 560</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
+            <div style="font-size:9px;color:#888">Alunos</div>
+            <div style="font-size:14px;font-weight:700;color:#111">47</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
+            <div style="font-size:9px;color:#888">Turmas</div>
+            <div style="font-size:14px;font-weight:700;color:#111">8</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #e24b4a">
+            <div style="font-size:9px;color:#888">Inadimplentes</div>
+            <div style="font-size:14px;font-weight:700;color:#e24b4a">3</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
+            <div style="font-size:10px;font-weight:600;color:#111">Alunos</div>
+            <div style="font-size:9px;color:#888">Gerenciar</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
+            <div style="font-size:10px;font-weight:600;color:#111">Turmas</div>
+            <div style="font-size:9px;color:#888">Horarios</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
+            <div style="font-size:10px;font-weight:600;color:#111">Financeiro</div>
+            <div style="font-size:9px;color:#888">Cobrancas</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
+            <div style="font-size:10px;font-weight:600;color:#111">Presencas</div>
+            <div style="font-size:9px;color:#888">Chamada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup Mobile -->
+    <div class="mockup-mobile">
+      <div style="width:200px;margin:0 auto;background:#111;border-radius:32px;padding:8px;border:3px solid #222">
+        <div style="background:#f8f8f6;border-radius:26px;overflow:hidden">
+          <div style="background:#000;padding:8px 14px;display:flex;justify-content:space-between;align-items:center">
+            <span style="color:#fff;font-size:9px;font-weight:600">10:54</span>
+            <div style="display:flex;gap:4px;align-items:center">
+              <span style="color:#fff;font-size:8px">●●●</span>
+              <span style="color:#fff;font-size:8px">WiFi</span>
+            </div>
+          </div>
+          <div style="background:#000;padding:8px 14px;display:flex;align-items:center;gap:6px">
+            <div style="width:18px;height:18px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;color:#000">F2</div>
+            <span style="color:#fff;font-size:10px;font-weight:600">F2 Sports</span>
+          </div>
+          <div style="padding:10px">
+            <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:2px">ABF Cascavel</div>
+            <div style="font-size:9px;color:#888;margin-bottom:10px">Plano Pro</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+              <div style="background:#fff;border-radius:8px;padding:8px;border-top:2px solid #d49f32">
+                <div style="font-size:8px;color:#888">Alunos</div>
+                <div style="font-size:13px;font-weight:700;color:#111">47</div>
+              </div>
+              <div style="background:#fff;border-radius:8px;padding:8px;border-top:2px solid #e24b4a">
+                <div style="font-size:8px;color:#888">Inadimp.</div>
+                <div style="font-size:13px;font-weight:700;color:#e24b4a">3</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
+                <span style="font-size:9px;font-weight:600;color:#111">Alunos</span>
+                <span style="font-size:10px;color:#d49f32">›</span>
+              </div>
+              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
+                <span style="font-size:9px;font-weight:600;color:#111">Financeiro</span>
+                <span style="font-size:10px;color:#d49f32">›</span>
+              </div>
+              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
+                <span style="font-size:9px;font-weight:600;color:#111">Presencas</span>
+                <span style="font-size:10px;color:#d49f32">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 6 — Funcionalidades -->
+<section class="features-section" id="funcionalidades">
+  <h2 class="section-title">Tudo que voce precisa</h2>
+  <p class="section-subtitle">Ferramentas simples e poderosas para gerir sua escolinha do inicio ao fim.</p>
+  <div class="features-grid">
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      </div>
+      <div class="feature-title">Gestao de Alunos</div>
+      <div class="feature-desc">Cadastro completo com responsaveis, historico e conformidade LGPD</div>
+    </div>
+
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+      </div>
+      <div class="feature-title">Presenca Digital</div>
+      <div class="feature-desc">Lista de chamada no celular. Simples, rapido, funciona sem internet</div>
+    </div>
+
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </div>
+      <div class="feature-title">Financeiro PIX</div>
+      <div class="feature-desc">Cobrancas geradas automaticamente. Saiba quem pagou em tempo real</div>
+    </div>
+
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </div>
+      <div class="feature-title">WhatsApp Integrado</div>
+      <div class="feature-desc">Mensagens prontas para cobrar, avisar e parabenizar com 1 clique</div>
+    </div>
+
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>
+      </div>
+      <div class="feature-title">Competicoes</div>
+      <div class="feature-desc">Registre torneios, convoque atletas e mantenha o historico completo</div>
+    </div>
+
+    <div class="feature-card" onmouseover="this.style.background='#fdf3e0';this.style.borderColor='#d49f32'" onmouseout="this.style.background='#f8f8f6';this.style.borderColor='#e5e5e5'">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="3" y1="20" x2="21" y2="20"></line></svg>
+      </div>
+      <div class="feature-title">Relatorio Mensal PDF</div>
+      <div class="feature-desc">Resumo financeiro e de presenca para enviar ao socio ou arquivar</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 7 — Depoimentos -->
+<section class="testimonials-section">
+  <h2 class="section-title">O que gestores dizem</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Antes eu usava caderno e planilha. Agora faco tudo pelo celular. A cobranca vai sozinha todo mes."</p>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">CR</div>
+        <div>
+          <div class="testimonial-name">Carlos R.</div>
+          <div class="testimonial-role">Escolinha de Futsal, Cascavel/PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"O sistema mostrou quem estava devendo e eu so cliquei para mandar o WhatsApp. Em 5 minutos cobrei todo mundo."</p>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AP</div>
+        <div>
+          <div class="testimonial-name">Ana P.</div>
+          <div class="testimonial-role">Escola de Natacao, Londrina/PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Nunca imaginei que seria tao facil. Cadastrei meus alunos em uma tarde e ja estava usando no dia seguinte."</p>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">RM</div>
+        <div>
+          <div class="testimonial-name">Roberto M.</div>
+          <div class="testimonial-role">Academia de Lutas, Maringa/PR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 8 — Planos -->
+<section class="plans-section" id="planos">
+  <h2 class="section-title">Escolha seu plano</h2>
+  <p class="section-subtitle">Simples e transparente. Sem taxas escondidas.</p>
+  <div class="plans-grid">
+
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div>
+        <span class="plan-price">R$ 97</span>
+        <span class="plan-price-period">/mes</span>
+      </div>
+      <div class="plan-desc">Para quem esta comecando</div>
+      <ul class="plan-features">
+        <li><span class="plan-check">✓</span> Ate 80 alunos</li>
+        <li><span class="plan-check">✓</span> Turmas e presencas</li>
+        <li><span class="plan-check">✓</span> Financeiro basico</li>
+        <li><span class="plan-check">✓</span> Suporte WhatsApp</li>
+      </ul>
+      <button class="plan-btn" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Comecar agora</button>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-badge">Mais escolhido</div>
+      <div class="plan-name">Pro</div>
+      <div>
+        <span class="plan-price">R$ 197</span>
+        <span class="plan-price-period">/mes</span>
+      </div>
+      <div class="plan-desc">Para escolinhas em crescimento</div>
+      <ul class="plan-features">
+        <li><span class="plan-check">✓</span> Ate 300 alunos</li>
+        <li><span class="plan-check">✓</span> Todos os modulos</li>
+        <li><span class="plan-check">✓</span> WhatsApp integrado</li>
+        <li><span class="plan-check">✓</span> Relatorio PDF</li>
+        <li><span class="plan-check">✓</span> Suporte prioritario</li>
+      </ul>
+      <button class="plan-btn gold" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Assinar Pro</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-name">Elite</div>
+      <div>
+        <span class="plan-price">R$ 247</span>
+        <span class="plan-price-period">/mes</span>
+      </div>
+      <div class="plan-desc">Para operacoes completas</div>
+      <ul class="plan-features">
+        <li><span class="plan-check">✓</span> Alunos ilimitados</li>
+        <li><span class="plan-check">✓</span> Todos modulos Pro</li>
+        <li><span class="plan-check">✓</span> Multi-modalidade</li>
+        <li><span class="plan-check">✓</span> Onboarding personalizado</li>
+        <li><span class="plan-check">✓</span> Suporte dedicado</li>
+      </ul>
+      <button class="plan-btn" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Assinar Elite</button>
+    </div>
+
+  </div>
+  <p class="plans-footer">14 dias gratis em todos os planos · Sem cartao de credito · Cancele quando quiser</p>
+</section>
+
+<!-- SEÇÃO 9 — FAQ -->
+<section class="faq-section">
+  <h2 class="section-title">Perguntas frequentes</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Preciso saber usar computador?</span>
+        <span class="faq-arrow">›</span>
+      </div>
+      <div class="faq-answer">Nao. O sistema funciona no celular e e tao simples quanto usar o WhatsApp. Se voce sabe mandar mensagem, sabe usar o F2 Sports.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Como recebo o acesso apos assinar?</span>
+        <span class="faq-arrow">›</span>
+      </div>
+      <div class="faq-answer">Apos a confirmacao do pagamento, nossa equipe entra em contato pelo WhatsApp em ate 24 horas para configurar tudo para voce.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Posso cancelar quando quiser?</span>
+        <span class="faq-arrow">›</span>
+      </div>
+      <div class="faq-answer">Sim. Sem fidelidade e sem multa. Cancele a qualquer momento direto pelo painel ou pelo WhatsApp.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Meus dados ficam seguros?</span>
+        <span class="faq-arrow">›</span>
+      </div>
+      <div class="faq-answer">Sim. O sistema usa criptografia AES-256 e segue todas as normas da Lei LGPD. Seus dados e dos seus alunos estao 100% protegidos.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Funciona para qualquer esporte?</span>
+        <span class="faq-arrow">›</span>
+      </div>
+      <div class="faq-answer">Sim. Futsal, natacao, tenis, lutas, basquete, ginastica ou qualquer outra modalidade. O sistema e flexivel para todo tipo de escolinha.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 10 — CTA final -->
+<section class="cta-final" id="contato">
+  <h2 class="cta-title">Pronto para organizar sua escolinha?</h2>
+  <p class="cta-subtitle">Configure em 10 minutos · 14 dias gratis · Suporte no WhatsApp</p>
+  <button class="cta-btn" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar agora →</button>
+  <a href="https://wa.me/5545999723744" class="cta-link">Duvidas? Fale conosco no WhatsApp</a>
+</section>
+
+<!-- SEÇÃO 11 — Footer -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo-circle">F2</div>
+    <span class="footer-copy">© 2025 F2 Sports · Todos os direitos reservados</span>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacidade</a>
+    <a href="#">Termos</a>
+    <a href="https://wa.me/5545999723744">Contato</a>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      const answer = item.querySelector('.faq-answer');
+      const arrow = item.querySelector('.faq-arrow');
+      const isOpen = answer.style.display === 'block';
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+      document.querySelectorAll('.faq-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+      if (!isOpen) {
+        answer.style.display = 'block';
+        arrow.style.transform = 'rotate(90deg)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
