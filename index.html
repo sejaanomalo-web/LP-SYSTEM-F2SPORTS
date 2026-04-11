@@ -22,26 +22,22 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    height: 64px;
+    background: #000;
+    border-bottom: 1px solid #222;
+    height: 72px;
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px }
-  .nav-logo-circle {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: #d49f32; color: #000;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 14px;
-  }
-  .nav-logo-text { color: #000; font-size: 17px; font-weight: 700 }
+  .nav-logo { display: flex; align-items: center; gap: 2px }
+  .nav-logo img { height: 44px; width: auto; display: block }
+  .nav-logo-text-f2 { color: #d49f32; font-size: 22px; font-weight: 800; letter-spacing: -0.5px }
+  .nav-logo-text-sports { color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-left: 6px }
   .nav-links { display: flex; gap: 32px }
-  .nav-links a { color: #555; font-size: 14px }
+  .nav-links a { color: #d1d1d1; font-size: 14px; font-weight: 500 }
+  .nav-links a:hover { color: #d49f32 }
   .nav-right { display: flex; align-items: center; gap: 20px }
-  .nav-right a.login { color: #888; font-size: 13px }
   .btn-primary {
     background: #d49f32; color: #000;
     font-weight: 700; border-radius: 8px;
@@ -110,10 +106,10 @@
 
   /* Prova social */
   .social-proof {
-    background: #f8f8f6;
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 36px 40px;
+    background: #000;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 44px 40px;
   }
   .stats-grid {
     display: grid;
@@ -122,10 +118,10 @@
     max-width: 1000px;
     margin: 0 auto;
   }
-  .stat-item { border-right: 1px solid #e5e5e5 }
+  .stat-item { border-right: 1px solid #222 }
   .stat-item:last-child { border-right: none }
-  .stat-number { font-size: 32px; font-weight: 800; color: #d49f32 }
-  .stat-label { font-size: 12px; color: #888; margin-top: 4px }
+  .stat-number { font-size: 34px; font-weight: 800; color: #d49f32 }
+  .stat-label { font-size: 12px; color: #999; margin-top: 6px; letter-spacing: .02em }
 
   /* Dor vs Solução */
   .pain-section {
@@ -649,8 +645,7 @@
 <!-- SEÇÃO 1 — Navbar -->
 <nav class="navbar">
   <div class="nav-logo">
-    <div class="nav-logo-circle">F2</div>
-    <span class="nav-logo-text">F2 Sports</span>
+    <span class="nav-logo-text-f2">F2</span><span class="nav-logo-text-sports">Sports</span>
   </div>
   <div class="nav-links">
     <a href="#funcionalidades">Funcionalidades</a>
