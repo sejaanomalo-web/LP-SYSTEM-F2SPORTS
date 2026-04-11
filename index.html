@@ -30,10 +30,9 @@
     align-items: center;
     justify-content: space-between;
   }
-  .nav-logo { display: flex; align-items: center; gap: 2px }
-  .nav-logo img { height: 44px; width: auto; display: block }
-  .nav-logo-text-f2 { color: #d49f32; font-size: 22px; font-weight: 800; letter-spacing: -0.5px }
-  .nav-logo-text-sports { color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-left: 6px }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none }
+  .nav-logo img { height: 48px; width: auto; display: block }
+  .nav-logo-text-sports { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.3px }
   .nav-links { display: flex; gap: 32px }
   .nav-links a { color: #d1d1d1; font-size: 14px; font-weight: 500 }
   .nav-links a:hover { color: #d49f32 }
@@ -644,9 +643,10 @@
 
 <!-- SEÇÃO 1 — Navbar -->
 <nav class="navbar">
-  <div class="nav-logo">
-    <span class="nav-logo-text-f2">F2</span><span class="nav-logo-text-sports">Sports</span>
-  </div>
+  <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports">
+    <span class="nav-logo-text-sports">F2 Sports</span>
+  </a>
   <div class="nav-links">
     <a href="#funcionalidades">Funcionalidades</a>
     <a href="#como-funciona">Como Funciona</a>
