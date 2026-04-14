@@ -153,32 +153,48 @@
     margin: 0 auto;
   }
   .pain-card {
-    background: #fef2f2;
+    background: #fff;
     border: 1px solid #fca5a5;
+    border-left: 4px solid #e24b4a;
     border-radius: 12px;
-    padding: 20px 22px;
+    padding: 18px 20px;
     margin-bottom: 12px;
-    font-size: 15px;
-    color: #991b1b;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
     font-weight: 500;
+    color: #111;
     line-height: 1.45;
   }
   .solution-card {
-    background: #f0fdf4;
+    background: #fff;
     border: 1px solid #86efac;
+    border-left: 4px solid #2e7d32;
     border-radius: 12px;
-    padding: 20px 22px;
+    padding: 18px 20px;
     margin-bottom: 12px;
-    font-size: 15px;
-    color: #166534;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
     font-weight: 500;
+    color: #111;
     line-height: 1.45;
   }
-  .pain-arrow {
-    font-size: 40px;
-    color: #d49f32;
-    font-weight: 900;
-    text-align: center;
+  .pain-icon, .solution-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pain-icon { background: #fef2f2 }
+  .solution-icon { background: #f0fdf4 }
+  .pain-grid {
+    max-width: 960px;
   }
 
   /* Mockup */
@@ -201,7 +217,7 @@
     margin-top: 12px;
   }
 
-  /* Funcionalidades (carrossel dourado) */
+  /* Funcionalidades (carrossel dourado com setas) */
   .features-section {
     background: #d49f32;
     padding: 80px 0;
@@ -218,11 +234,32 @@
     font-size: 15px;
     padding: 0 40px;
   }
-  .carousel-container {
+  .carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    padding: 40px 24px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .carousel-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+  .carousel-viewport {
+    flex: 1;
     overflow: hidden;
     position: relative;
-    margin-top: 40px;
-    max-width: 100%;
   }
   .carousel-track {
     display: flex;
@@ -235,31 +272,36 @@
     0% { transform: translateX(0) }
     100% { transform: translateX(-50%) }
   }
+  @keyframes ticker {
+    0% { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+  }
   .feature-card {
+    width: 240px;
+    height: 240px;
+    min-width: 240px;
     background: #000;
     border-radius: 16px;
     padding: 28px;
-    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex-shrink: 0;
   }
   .feature-icon {
-    width: 52px; height: 52px;
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 14px;
+    width: 44px; height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .feature-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #fff;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .feature-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: #888;
     line-height: 1.5;
   }
@@ -538,69 +580,20 @@
     font-size: 12px;
   }
 
-  /* Assinei e agora (clean, 3 passos) */
+  /* Assinei e agora (3 cards pretos) */
   .after-signup-section {
-    background: #d49f32;
+    background: #f8f8f6;
     padding: 80px 40px;
   }
   .after-signup-section .section-title {
     font-size: 36px;
-    color: #000;
+    color: #111;
   }
   .after-signup-section .section-subtitle {
-    color: #5a3a00;
-  }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 900px;
-    margin: 48px auto 0;
-    position: relative;
-  }
-  .steps-grid::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    left: 12%;
-    right: 12%;
-    border-top: 2px dashed rgba(0, 0, 0, 0.15);
-    z-index: 0;
-  }
-  .step-item {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    padding: 0 12px;
-  }
-  .step-num-big {
-    font-size: 64px;
-    font-weight: 800;
-    color: rgba(0, 0, 0, 0.08);
-    line-height: 1;
-    margin-bottom: -28px;
-    position: relative;
-    background: #d49f32;
-    display: inline-block;
-    padding: 0 12px;
-  }
-  .step-item-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 2;
-  }
-  .step-item-desc {
-    font-size: 14px;
-    color: #5a3a00;
-    line-height: 1.6;
-    max-width: 220px;
-    margin: 0 auto;
+    color: #888;
   }
 
-  /* Suporte humano (nova secao apos prova social) */
+  /* Suporte humano (nova secao após prova social) */
   .support-human {
     background: #000;
     padding: 80px 40px;
@@ -649,6 +642,21 @@
     margin-top: 16px;
   }
 
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s }
+  .reveal-delay-2 { transition-delay: 0.2s }
+  .reveal-delay-3 { transition-delay: 0.3s }
+  .reveal-delay-4 { transition-delay: 0.4s }
+
   /* Responsivo */
   @media (max-width: 768px) {
     .nav-links { display: none }
@@ -660,13 +668,11 @@
     .support-grid { grid-template-columns: 1fr; gap: 40px }
     .support-heading { font-size: 28px }
     .pain-grid { grid-template-columns: 1fr }
-    .pain-arrow { display: none }
     .mockup-grid { grid-template-columns: 1fr }
     .mockup-mobile { display: none }
-    .testimonials-grid { grid-template-columns: 1fr }
     .plans-grid { grid-template-columns: 1fr }
-    .steps-grid { grid-template-columns: 1fr; gap: 40px }
-    .steps-grid::before { display: none }
+    .assinei-grid { grid-template-columns: 1fr !important }
+    .carousel-arrow { display: none }
     .faq-container { padding: 0 16px }
     section { padding: 60px 20px }
     .navbar { padding: 0 20px }
@@ -689,25 +695,23 @@
 
 <!-- SEÇÃO 2 — Hero -->
 <section class="hero">
-  <h1 class="hero-title">Sua escolinha.<br>Seu sistema.<br>Seu <span style="color:#d49f32">controle.</span></h1>
-  <p class="hero-subtitle">Simples como usar o WhatsApp.<br>Poderoso como um sistema profissional.</p>
-  <div class="hero-buttons">
+  <h1 class="hero-title reveal">Sua escolinha.<br>Seu sistema.<br>Seu <span style="color:#d49f32">controle.</span></h1>
+  <p class="hero-subtitle reveal reveal-delay-1">Simples como usar o WhatsApp.<br>Poderoso como um sistema profissional.</p>
+  <div class="hero-buttons reveal reveal-delay-2">
     <button class="btn-hero-main hero-btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar agora →</button>
     <button class="btn-hero-secondary" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">Ver como funciona</button>
   </div>
 </section>
 
-<!-- SEÇÃO 3 — Prova social -->
-<section class="social-proof">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-number">10min</div>
-      <div class="stat-label">para configurar</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">no celular</div>
-    </div>
+<!-- SEÇÃO 3 — Prova social (ticker) -->
+<section style="background:#f8f8f6;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;padding:18px 0;overflow:hidden">
+  <div style="display:flex;gap:0;animation:ticker 18s linear infinite;width:max-content">
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
   </div>
 </section>
 
@@ -715,16 +719,16 @@
 <section class="support-human" id="suporte">
   <div class="support-grid">
     <div>
-      <h2 class="support-heading">Nao e chatbot.<br>E uma pessoa <span style="color:#d49f32">no WhatsApp.</span></h2>
-      <p class="support-paragraph">Se travar na hora de cadastrar um aluno, gerar uma cobranca ou configurar uma turma — e so mandar mensagem. Nossa equipe responde direto pelo WhatsApp e resolve junto com voce.</p>
-      <div class="support-bullets">· Atendimento em portugues<br>· Sem ticket, sem fila de espera<br>· Segunda a sabado</div>
-      <p class="support-note">Suporte humano, de segunda a sabado, pelo WhatsApp.</p>
+      <h2 class="support-heading">Não é chatbot.<br>E uma pessoa <span style="color:#d49f32">no WhatsApp.</span></h2>
+      <p class="support-paragraph">Se travar na hora de cadastrar um aluno, gerar uma cobrança ou configurar uma turma — é só mandar mensagem. Nossa equipe responde direto pelo WhatsApp e resolve junto com você.</p>
+      <div class="support-bullets">· Atendimento em português<br>· Sem ticket, sem fila de espera<br>· Segunda a sábado</div>
+      <p class="support-note">Suporte humano, de segunda a sábado, pelo WhatsApp.</p>
     </div>
     <div style="display:flex;justify-content:center">
       <div style="background:#1a1a1a;border-radius:16px;padding:20px;max-width:280px;width:100%">
         <div style="font-size:11px;color:#555;margin-bottom:12px;text-align:center">F2 Sports · Suporte</div>
         <div style="background:#2a2a2a;border-radius:10px 10px 10px 2px;padding:12px 14px;margin-bottom:8px;max-width:85%">
-          <div style="font-size:13px;color:#fff;line-height:1.5">Oi! Nao estou conseguindo cadastrar um aluno novo...</div>
+          <div style="font-size:13px;color:#fff;line-height:1.5">Oi! Não estou conseguindo cadastrar um aluno novo...</div>
           <div style="font-size:10px;color:#555;margin-top:4px;text-align:right">10:32</div>
         </div>
         <div style="background:#d49f32;border-radius:10px 10px 2px 10px;padding:12px 14px;margin-left:auto;max-width:85%">
@@ -738,29 +742,31 @@
 
 <!-- SEÇÃO 5 — Dor vs Solução -->
 <section class="pain-section" id="como-funciona">
-  <h2 class="section-title">Ainda gerenciando no caderno?</h2>
+  <h2 class="section-title reveal">Ainda gerenciando no caderno?</h2>
   <p class="section-subtitle">A maioria dos gestores perde horas por semana com tarefas que o F2 Sports resolve em segundos.</p>
   <div class="pain-grid">
     <div>
-      <div class="pain-card">✗ Nao sabe quem pagou esse mes sem olhar o caderno</div>
-      <div class="pain-card">✗ Cobra cada aluno manualmente pelo WhatsApp</div>
-      <div class="pain-card">✗ Esquece de lancar presenca ou perde a folha</div>
-      <div class="pain-card">✗ Nao tem como ver o financeiro da escolinha de bate-pronto</div>
+      <div class="pain-card reveal reveal-delay-1"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Não sabe quem pagou esse mês sem olhar o caderno</div>
+      <div class="pain-card reveal reveal-delay-2"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Cobra cada aluno manualmente pelo WhatsApp</div>
+      <div class="pain-card reveal reveal-delay-3"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Esquece de lançar presença ou perde a folha</div>
+      <div class="pain-card reveal reveal-delay-4"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Não consegue ver o financeiro da escolinha de bate-pronto</div>
     </div>
-    <div class="pain-arrow">→</div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0 16px">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      <span style="font-size:11px;font-weight:600;color:#d49f32;letter-spacing:.05em;text-transform:uppercase">com o F2</span>
+    </div>
     <div>
-      <div class="solution-card">✓ Lista de pagamentos atualizada em tempo real</div>
-      <div class="solution-card">✓ Cobranca gerada automaticamente — voce so confere</div>
-      <div class="solution-card">✓ Presenca lancada no celular em menos de 1 minuto</div>
-      <div class="solution-card">✓ Dashboard com tudo que importa na tela inicial</div>
+      <div class="solution-card reveal reveal-delay-1"><span class="solution-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Lista de pagamentos atualizada em tempo real</div>
+      <div class="solution-card reveal reveal-delay-2"><span class="solution-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Cobrança gerada automaticamente — você só confere</div>
+      <div class="solution-card reveal reveal-delay-3"><span class="solution-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Presença lançada no celular em menos de 1 minuto</div>
+      <div class="solution-card reveal reveal-delay-4"><span class="solution-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Dashboard com tudo que importa na tela inicial</div>
     </div>
   </div>
 </section>
 
 <!-- SEÇÃO 5 — Mockup -->
 <section class="mockup-section">
-  <h2 class="section-title">Veja o sistema funcionando</h2>
-  <p class="section-subtitle">Simples como usar o WhatsApp. Poderoso como um sistema profissional.</p>
+  <h2 style="font-size:38px;font-weight:800;color:#111;text-align:center;line-height:1.2;margin-bottom:12px">Simples como usar o <span style="text-decoration:underline;text-decoration-color:#d49f32;text-underline-offset:4px">WhatsApp.</span><br>Poderoso como um sistema <span style="color:#d49f32">profissional.</span></h2>
   <!-- SUBSTITUIR MOCKUP POR VIDEO OU FOTO REAL -->
   <!-- <video autoplay muted loop playsinline style='width:100%;border-radius:12px'>
     <source src='demo-f2sports.mp4' type='video/mp4'>
@@ -807,7 +813,7 @@
           </div>
           <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
             <div style="font-size:10px;font-weight:600;color:#111">Turmas</div>
-            <div style="font-size:9px;color:#888">Horarios</div>
+            <div style="font-size:9px;color:#888">Horários</div>
           </div>
           <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
             <div style="font-size:10px;font-weight:600;color:#111">Financeiro</div>
@@ -868,21 +874,24 @@
       </div>
     </div>
   </div>
-  <p class="mockup-caption">* Imagens ilustrativas do painel real do sistema</p>
 </section>
 
 <!-- SEÇÃO 6 — Funcionalidades -->
 <section class="features-section" id="funcionalidades">
-  <h2 class="section-title">Tudo que voce precisa</h2>
-  <p class="section-subtitle">Ferramentas simples e poderosas para gerir sua escolinha do inicio ao fim.</p>
-  <div class="carousel-container" style="position:relative;overflow:hidden">
-    <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,#d49f32,transparent);z-index:2;pointer-events:none"></div>
-    <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,#d49f32,transparent);z-index:2;pointer-events:none"></div>
-    <div class="carousel-track">
+  <h2 class="section-title reveal">Tudo que você precisa</h2>
+  <p class="section-subtitle">Ferramentas simples e poderosas para gerir sua escolinha do início ao fim.</p>
+  <div class="carousel-wrap">
+    <button id="carousel-prev" class="carousel-arrow" aria-label="Anterior">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="carousel-viewport">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,#d49f32,transparent);z-index:2;pointer-events:none"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(to left,#d49f32,transparent);z-index:2;pointer-events:none"></div>
+      <div id="carousel-track" class="carousel-track">
       <div class="feature-card">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-        <div class="feature-title">Gestao de Alunos</div>
-        <div class="feature-desc">Cadastro completo. Historico, responsavel e contato num lugar so.</div>
+        <div class="feature-title">Gestão de Alunos</div>
+        <div class="feature-desc">Cadastro completo. Histórico, responsável e contato num lugar só.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5"/></svg></div>
@@ -902,18 +911,18 @@
       <div class="feature-card">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4H4v3c0 2.2 1.8 4 4 4M17 4h3v3c0 2.2-1.8 4-4 4M12 15c-3.3 0-6-2.7-6-6V4h12v5c0 3.3-2.7 6-6 6z"/></svg></div>
         <div class="feature-title">Competicoes</div>
-        <div class="feature-desc">Registre torneios, liste os atletas e guarde o historico da escolinha.</div>
+        <div class="feature-desc">Registre torneios, liste os atletas e guarde o histórico da escolinha.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-        <div class="feature-title">Relatorio Mensal</div>
-        <div class="feature-desc">Resumo de presenca e financeiro em PDF. Imprime ou manda pro socio.</div>
+        <div class="feature-title">Relatório Mensal</div>
+        <div class="feature-desc">Resumo de presença e financeiro em PDF. Imprime ou manda pro sócio.</div>
       </div>
       <!-- Duplicados para loop infinito -->
       <div class="feature-card" aria-hidden="true">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-        <div class="feature-title">Gestao de Alunos</div>
-        <div class="feature-desc">Cadastro completo. Historico, responsavel e contato num lugar so.</div>
+        <div class="feature-title">Gestão de Alunos</div>
+        <div class="feature-desc">Cadastro completo. Histórico, responsável e contato num lugar só.</div>
       </div>
       <div class="feature-card" aria-hidden="true">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5"/></svg></div>
@@ -933,69 +942,72 @@
       <div class="feature-card" aria-hidden="true">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4H4v3c0 2.2 1.8 4 4 4M17 4h3v3c0 2.2-1.8 4-4 4M12 15c-3.3 0-6-2.7-6-6V4h12v5c0 3.3-2.7 6-6 6z"/></svg></div>
         <div class="feature-title">Competicoes</div>
-        <div class="feature-desc">Registre torneios, liste os atletas e guarde o historico da escolinha.</div>
+        <div class="feature-desc">Registre torneios, liste os atletas e guarde o histórico da escolinha.</div>
       </div>
       <div class="feature-card" aria-hidden="true">
         <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-        <div class="feature-title">Relatorio Mensal</div>
-        <div class="feature-desc">Resumo de presenca e financeiro em PDF. Imprime ou manda pro socio.</div>
+        <div class="feature-title">Relatório Mensal</div>
+        <div class="feature-desc">Resumo de presença e financeiro em PDF. Imprime ou manda pro sócio.</div>
+      </div>
       </div>
     </div>
+    <button id="carousel-next" class="carousel-arrow" aria-label="Próximo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </section>
 
 <!-- SEÇÃO 8 — Planos -->
 <section class="plans-section" id="planos">
-  <div class="plans-badge-wrap"><span class="plans-badge">Escolha o plano ideal para sua escolinha</span></div>
-  <h2 class="section-title">Escolha o plano ideal para sua escolinha</h2>
+  <h2 class="section-title reveal">Escolha o plano ideal para sua escolinha</h2>
   <p class="section-subtitle">Simples e transparente. Sem taxas escondidas.</p>
   <div class="plans-grid">
 
-    <div class="plan-card">
+    <div class="plan-card reveal reveal-delay-1">
       <div class="plan-name">Starter</div>
       <div>
         <span class="plan-price">R$ 97</span>
-        <span class="plan-price-period">/mes</span>
+        <span class="plan-price-period">/mês</span>
       </div>
-      <div class="plan-desc">Para quem esta comecando</div>
+      <div class="plan-desc">Para quem está começando</div>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Ate 120 alunos</li>
-        <li><span class="plan-check">✓</span> Turmas e presencas</li>
-        <li><span class="plan-check">✓</span> Financeiro basico</li>
+        <li><span class="plan-check">✓</span> Turmas e presenças</li>
+        <li><span class="plan-check">✓</span> Financeiro básico</li>
         <li><span class="plan-check">✓</span> Suporte WhatsApp</li>
       </ul>
-      <button class="plan-btn" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Comecar agora</button>
+      <button class="plan-btn" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Começar agora</button>
     </div>
 
-    <div class="plan-card featured">
+    <div class="plan-card featured reveal reveal-delay-2">
       <div class="plan-badge">Mais escolhido</div>
       <div class="plan-name">Pro</div>
       <div>
         <span class="plan-price">R$ 137</span>
-        <span class="plan-price-period">/mes</span>
+        <span class="plan-price-period">/mês</span>
       </div>
-      <div class="plan-price-note">por mes, cobrado mensalmente</div>
+      <div class="plan-price-note">por mês, cobrado mensalmente</div>
       <div class="plan-desc">Para escolinhas em crescimento</div>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Ate 450 alunos</li>
-        <li><span class="plan-check">✓</span> Todos os modulos</li>
+        <li><span class="plan-check">✓</span> Todos os módulos</li>
         <li><span class="plan-check">✓</span> WhatsApp integrado</li>
-        <li><span class="plan-check">✓</span> Relatorio PDF</li>
+        <li><span class="plan-check">✓</span> Relatório PDF</li>
         <li><span class="plan-check">✓</span> Suporte prioritario</li>
       </ul>
       <button class="plan-btn gold" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Assinar Pro</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card reveal reveal-delay-3">
       <div class="plan-name">Elite</div>
       <div>
         <span class="plan-price">R$ 247</span>
-        <span class="plan-price-period">/mes</span>
+        <span class="plan-price-period">/mês</span>
       </div>
-      <div class="plan-desc">Para operacoes completas</div>
+      <div class="plan-desc">Para operações completas</div>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Alunos ilimitados</li>
-        <li><span class="plan-check">✓</span> Todos modulos Pro</li>
+        <li><span class="plan-check">✓</span> Todos módulos Pro</li>
         <li><span class="plan-check">✓</span> Multi-modalidade</li>
         <li><span class="plan-check">✓</span> Onboarding personalizado</li>
         <li><span class="plan-check">✓</span> Suporte dedicado</li>
@@ -1010,51 +1022,51 @@
       <path d="M9 12l2 2 4-4"/>
     </svg>
     <div style="font-size:17px;font-weight:700;color:#111;margin-bottom:6px">7 dias de garantia</div>
-    <div style="font-size:14px;color:#888;line-height:1.6">Nao gostou? A gente devolve. Sem formulario, sem prazo de espera.</div>
+    <div style="font-size:14px;color:#888;line-height:1.6">Não gostou? A gente devolve. Sem formulário, sem prazo de espera.</div>
   </div>
 </section>
 
 <!-- SEÇÃO 9 — Assinei. E agora? -->
 <section class="after-signup-section" id="assinei-e-agora">
-  <h2 class="section-title">Assinei. E agora?</h2>
-  <p class="section-subtitle">Tres passos. Dez minutos. Escolinha no ar.</p>
-  <div class="steps-grid">
-    <div class="step-item">
-      <div class="step-num-big">01</div>
-      <h3 class="step-item-title">Recebe o acesso</h3>
-      <p class="step-item-desc">Nossa equipe envia o link do sistema pelo WhatsApp logo apos a confirmacao do pagamento.</p>
+  <h2 class="section-title reveal">Assinei. E agora?</h2>
+  <p class="section-subtitle">Três passos. Dez minutos. Escolinha no ar.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:48px auto 0" class="assinei-grid">
+    <div class="reveal reveal-delay-1" style="background:#000;border-radius:16px;padding:36px 28px">
+      <div style="font-size:56px;font-weight:900;color:#d49f32;line-height:1;margin-bottom:16px">01</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px">Recebe o acesso</div>
+      <div style="font-size:14px;color:#888;line-height:1.6">Nossa equipe envia o link do sistema pelo WhatsApp logo após a confirmação do pagamento.</div>
     </div>
-    <div class="step-item">
-      <div class="step-num-big">02</div>
-      <h3 class="step-item-title">Configura em 10 minutos</h3>
-      <p class="step-item-desc">Cadastra a escolinha, cria as turmas e adiciona os primeiros alunos. Simples como preencher um formulario.</p>
+    <div class="reveal reveal-delay-2" style="background:#000;border-radius:16px;padding:36px 28px">
+      <div style="font-size:56px;font-weight:900;color:#d49f32;line-height:1;margin-bottom:16px">02</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px">Configura em 10 minutos</div>
+      <div style="font-size:14px;color:#888;line-height:1.6">Cadastra a escolinha, cria as turmas e adiciona os primeiros alunos. Simples como preencher um formulário.</div>
     </div>
-    <div class="step-item">
-      <div class="step-num-big">03</div>
-      <h3 class="step-item-title">Comeca a usar</h3>
-      <p class="step-item-desc">Lanca a presenca no celular, gera as cobrancas e acompanha tudo pelo dashboard.</p>
+    <div class="reveal reveal-delay-3" style="background:#000;border-radius:16px;padding:36px 28px">
+      <div style="font-size:56px;font-weight:900;color:#d49f32;line-height:1;margin-bottom:16px">03</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px">Começa a usar</div>
+      <div style="font-size:14px;color:#888;line-height:1.6">Lança a presença no celular, gera as cobranças e acompanha tudo pelo dashboard.</div>
     </div>
   </div>
 </section>
 
 <!-- SEÇÃO 11 — FAQ -->
 <section class="faq-section">
-  <h2 class="section-title">Perguntas frequentes</h2>
+  <h2 class="section-title reveal">Perguntas frequentes</h2>
   <div class="faq-container">
     <div class="faq-item">
       <div class="faq-question">
         <span class="faq-question-text">Preciso saber usar computador?</span>
         <span class="faq-arrow">›</span>
       </div>
-      <div class="faq-answer">Nao. O sistema funciona no celular e e tao simples quanto usar o WhatsApp. Se voce sabe mandar mensagem, sabe usar o F2 Sports.</div>
+      <div class="faq-answer">Não. O sistema funciona no celular e é tão simples quanto usar o WhatsApp. Se você sabe mandar mensagem, sabe usar o F2 Sports.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-question-text">Como recebo o acesso apos assinar?</span>
+        <span class="faq-question-text">Como recebo o acesso após assinar?</span>
         <span class="faq-arrow">›</span>
       </div>
-      <div class="faq-answer">Apos a confirmacao do pagamento, nossa equipe entra em contato pelo WhatsApp em ate 24 horas para configurar tudo para voce.</div>
+      <div class="faq-answer">Após a confirmação do pagamento, nossa equipe entra em contato pelo WhatsApp em até 24 horas para configurar tudo para você.</div>
     </div>
 
     <div class="faq-item">
@@ -1070,7 +1082,7 @@
         <span class="faq-question-text">Meus dados ficam seguros?</span>
         <span class="faq-arrow">›</span>
       </div>
-      <div class="faq-answer">Sim. O sistema usa criptografia AES-256 e segue todas as normas da Lei LGPD. Seus dados e dos seus alunos estao 100% protegidos.</div>
+      <div class="faq-answer">Sim. O sistema usa criptografia AES-256 e segue todas as normas da Lei LGPD. Seus dados e dos seus alunos estão 100% protegidos.</div>
     </div>
 
     <div class="faq-item">
@@ -1078,7 +1090,7 @@
         <span class="faq-question-text">Funciona para qualquer esporte?</span>
         <span class="faq-arrow">›</span>
       </div>
-      <div class="faq-answer">Sim. Futsal, natacao, tenis, lutas, basquete, ginastica ou qualquer outra modalidade. O sistema e flexivel para todo tipo de escolinha.</div>
+      <div class="faq-answer">Sim. Futsal, natação, tênis, lutas, basquete, ginástica ou qualquer outra modalidade. O sistema é flexível para todo tipo de escolinha.</div>
     </div>
   </div>
 </section>
@@ -1086,7 +1098,7 @@
 <!-- SEÇÃO 12 — CTA final -->
 <section class="cta-final" id="cta-final">
   <h2 class="cta-title">Pronto para organizar sua escolinha?</h2>
-  <p class="cta-subtitle">Garantia de 7 dias. Sua satisfacao ou dinheiro de volta.</p>
+  <p class="cta-subtitle">Garantia de 7 dias. Sua satisfação ou dinheiro de volta.</p>
   <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="background:#d49f32;color:#000;font-size:18px;font-weight:800;height:62px;padding:0 52px;border-radius:14px;border:none;cursor:pointer;margin-top:36px;letter-spacing:-.3px">Quero assinar agora →</button>
   <p class="cta-link">Garantia de 7 dias · Suporte humano no WhatsApp · Cancele quando quiser</p>
 </section>
@@ -1099,11 +1111,44 @@
       <span style="color:#fff;font-size:15px;font-weight:700">F2 Sports</span>
     </div>
     <div style="color:#555;font-size:12px">© 2026 F2 Sports</div>
-    <div style="color:#444;font-size:11px">Sistema de gestao para escolinhas esportivas</div>
+    <div style="color:#444;font-size:11px">Sistema de gestão para escolinhas esportivas</div>
   </div>
 </footer>
 
 <script>
+  // Carousel arrows
+  (function(){
+    var prev = document.getElementById('carousel-prev');
+    var next = document.getElementById('carousel-next');
+    var track = document.getElementById('carousel-track');
+    if(!prev || !next || !track) return;
+    prev.addEventListener('click', function(){
+      track.style.animationPlayState = 'paused';
+      track.scrollLeft -= 260;
+    });
+    next.addEventListener('click', function(){
+      track.style.animationPlayState = 'paused';
+      track.scrollLeft += 260;
+    });
+  })();
+
+  // Scroll reveal
+  (function(){
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+  })();
+
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-question').addEventListener('click', () => {
@@ -1120,8 +1165,8 @@
   });
 </script>
 
-<div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999">
-  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#000;color:#fff;font-size:16px;font-weight:800;height:60px;border:none;cursor:pointer;letter-spacing:-.3px;display:block">Quero assinar agora →</button>
+<div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#000;padding:12px 16px">
+  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#d49f32;color:#000;font-size:16px;font-weight:800;height:52px;border-radius:10px;border:none;cursor:pointer;letter-spacing:-.3px">Quero assinar agora →</button>
 </div>
 
 <script>
