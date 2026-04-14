@@ -89,18 +89,53 @@
   }
   .btn-hero-main {
     background: #d49f32; color: #000;
-    font-weight: 700; font-size: 16px;
-    height: 54px; padding: 0 36px;
-    border-radius: 12px; border: none;
+    font-weight: 800; font-size: 16px;
+    height: 56px; padding: 0 38px;
+    border-radius: 14px; border: none;
     cursor: pointer;
+    letter-spacing: -0.3px;
+    box-shadow: 0 4px 14px rgba(212, 159, 50, 0.38), 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.2s ease;
+    position: relative;
+    overflow: hidden;
   }
+  .btn-hero-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    animation: shine 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes shine {
+    0% { left: -80% }
+    22% { left: 130% }
+    100% { left: 130% }
+  }
+  .btn-hero-main:hover {
+    background: #e0ad48;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(212, 159, 50, 0.5), 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  .btn-hero-main:active { transform: translateY(0) }
   .btn-hero-secondary {
     background: #111; color: #fff;
-    font-size: 15px;
-    height: 54px; padding: 0 30px;
-    border-radius: 12px; border: none;
+    font-size: 15px; font-weight: 700;
+    height: 56px; padding: 0 32px;
+    border-radius: 14px; border: none;
     cursor: pointer;
+    letter-spacing: -0.2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.2s ease;
   }
+  .btn-hero-secondary:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  .btn-hero-secondary:active { transform: translateY(0) }
   .hero-disclaimer {
     color: #999;
     font-size: 13px;
@@ -224,6 +259,7 @@
     line-height: 1.2;
     margin-bottom: 12px;
   }
+  .section-title-xl { font-size: 42px }
 
   /* Funcionalidades (carrossel dourado com setas) */
   .features-section {
@@ -404,11 +440,33 @@
     border-radius: 16px;
     padding: 40px 32px;
     background: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-color: #d49f32;
   }
   .plan-card.featured {
     border: 2px solid #d49f32;
     position: relative;
     box-shadow: 0 8px 32px rgba(212, 159, 50, 0.2);
+  }
+  .plan-card.featured:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 44px rgba(212, 159, 50, 0.32);
+  }
+  .plan-highlight {
+    background: #fdf3e0;
+    border: 1px solid #d49f32;
+    color: #a67c00;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+    letter-spacing: -0.1px;
   }
   .plan-card.featured .plan-price {
     font-size: 52px;
@@ -472,17 +530,32 @@
     background: #111;
     color: #fff;
     width: 100%;
-    height: 48px;
-    border-radius: 10px;
+    height: 52px;
+    border-radius: 12px;
     font-weight: 700;
     margin-top: 28px;
     border: none;
     cursor: pointer;
     font-size: 14px;
+    letter-spacing: -0.2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.2s ease;
   }
+  .plan-btn:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  }
+  .plan-btn:active { transform: translateY(0) }
   .plan-btn.gold {
     background: #d49f32;
     color: #000;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(212, 159, 50, 0.38);
+  }
+  .plan-btn.gold:hover {
+    background: #e0ad48;
+    box-shadow: 0 10px 28px rgba(212, 159, 50, 0.5);
   }
   .plans-footer {
     text-align: center;
@@ -550,6 +623,39 @@
     margin-top: 16px;
     display: block;
   }
+  .cta-btn-gold {
+    background: #d49f32;
+    color: #000;
+    font-size: 18px;
+    font-weight: 800;
+    height: 62px;
+    padding: 0 52px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: 36px;
+    letter-spacing: -0.3px;
+    box-shadow: 0 6px 20px rgba(212, 159, 50, 0.45), 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn-gold::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform: skewX(-20deg);
+    animation: shine 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .cta-btn-gold:hover {
+    background: #e0ad48;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(212, 159, 50, 0.55), 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  .cta-btn-gold:active { transform: translateY(0) }
 
   /* Footer */
   .footer {
@@ -687,6 +793,7 @@
     .footer { flex-direction: column; gap: 16px; text-align: center }
     .section-title { font-size: 28px }
     .mockup-title { font-size: 24px; line-height: 1.25 }
+    .section-title-xl { font-size: 31px }
     .cta-title { font-size: 30px }
     .features-section { padding: 60px 0 }
   }
@@ -716,13 +823,19 @@
 
 <!-- SEÇÃO 3 — Prova social (ticker) -->
 <section style="background:#f8f8f6;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;padding:18px 0;overflow:hidden">
-  <div style="display:flex;gap:0;animation:ticker 18s linear infinite;width:max-content">
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+  <div style="display:flex;gap:0;animation:ticker 26s linear infinite;width:max-content">
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Ver como funciona</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Ver como funciona</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
+    <span aria-hidden="true" style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
   </div>
 </section>
 
@@ -753,7 +866,7 @@
 
 <!-- SEÇÃO 5 — Dor vs Solução -->
 <section class="pain-section" id="como-funciona">
-  <h2 class="section-title reveal">Ainda gerenciando no caderno?</h2>
+  <h2 class="section-title section-title-xl reveal">Ainda gerenciando no caderno?</h2>
   <p class="section-subtitle">A maioria dos gestores perde horas por semana com tarefas que o F2 Sports resolve em segundos.</p>
   <div class="pain-grid">
     <div>
@@ -762,9 +875,11 @@
       <div class="pain-card reveal reveal-delay-3"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Esquece de lançar presença ou perde a folha</div>
       <div class="pain-card reveal reveal-delay-4"><span class="pain-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Não consegue ver o financeiro da escolinha de bate-pronto</div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0 16px">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      <span style="font-size:11px;font-weight:600;color:#d49f32;letter-spacing:.05em;text-transform:uppercase">com o F2</span>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 16px">
+      <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#f4d98a 0%,#d49f32 45%,#a67c00 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(212,159,50,0.5),inset 0 1px 2px rgba(255,255,255,0.4)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      </div>
+      <span style="font-size:11px;font-weight:800;color:#111;letter-spacing:.08em;text-transform:uppercase">com o F2</span>
     </div>
     <div>
       <div class="solution-card reveal reveal-delay-1"><span class="solution-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Lista de pagamentos atualizada em tempo real</div>
@@ -981,8 +1096,9 @@
         <span class="plan-price-period">/mês</span>
       </div>
       <div class="plan-desc">Para quem está começando</div>
+      <span class="plan-highlight">+ de 120 alunos cadastrados</span>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span> Ate 120 alunos</li>
+        <li><span class="plan-check">✓</span> Até 120 alunos</li>
         <li><span class="plan-check">✓</span> Turmas e presenças</li>
         <li><span class="plan-check">✓</span> Financeiro básico</li>
         <li><span class="plan-check">✓</span> Suporte WhatsApp</li>
@@ -999,12 +1115,13 @@
       </div>
       <div class="plan-price-note">por mês, cobrado mensalmente</div>
       <div class="plan-desc">Para escolinhas em crescimento</div>
+      <span class="plan-highlight">+ de 450 alunos · todos os módulos</span>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span> Ate 450 alunos</li>
+        <li><span class="plan-check">✓</span> Até 450 alunos</li>
         <li><span class="plan-check">✓</span> Todos os módulos</li>
         <li><span class="plan-check">✓</span> WhatsApp integrado</li>
         <li><span class="plan-check">✓</span> Relatório PDF</li>
-        <li><span class="plan-check">✓</span> Suporte prioritario</li>
+        <li><span class="plan-check">✓</span> Suporte prioritário</li>
       </ul>
       <button class="plan-btn gold" onclick="alert('Em breve! Entre em contato pelo WhatsApp: (45) 99972-3744'); return false;">Assinar Pro</button>
     </div>
@@ -1016,6 +1133,7 @@
         <span class="plan-price-period">/mês</span>
       </div>
       <div class="plan-desc">Para operações completas</div>
+      <span class="plan-highlight">alunos ilimitados · multi-modalidade</span>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Alunos ilimitados</li>
         <li><span class="plan-check">✓</span> Todos módulos Pro</li>
@@ -1110,7 +1228,7 @@
 <section class="cta-final" id="cta-final">
   <h2 class="cta-title">Pronto para organizar sua escolinha?</h2>
   <p class="cta-subtitle">Garantia de 7 dias. Sua satisfação ou dinheiro de volta.</p>
-  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="background:#d49f32;color:#000;font-size:18px;font-weight:800;height:62px;padding:0 52px;border-radius:14px;border:none;cursor:pointer;margin-top:36px;letter-spacing:-.3px">Quero assinar agora →</button>
+  <button class="cta-btn-gold" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar agora →</button>
   <p class="cta-link">Garantia de 7 dias · Suporte humano no WhatsApp · Cancele quando quiser</p>
 </section>
 
@@ -1177,7 +1295,7 @@
 </script>
 
 <div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#000;padding:12px 16px">
-  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#d49f32;color:#000;font-size:16px;font-weight:800;height:52px;border-radius:10px;border:none;cursor:pointer;letter-spacing:-.3px">Quero assinar agora →</button>
+  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#d49f32;color:#000;font-size:16px;font-weight:800;height:52px;border-radius:10px;border:none;cursor:pointer;letter-spacing:-.3px;box-shadow:0 4px 14px rgba(212,159,50,0.45)">Quero assinar agora →</button>
 </div>
 
 <script>
