@@ -6,7 +6,7 @@
 <title>F2 Sports — Gerencie sua escolinha do celular</title>
 <link rel="icon" type="image/png" href="only-logo-f2-removebg-preview.png">
 <link rel="apple-touch-icon" href="only-logo-f2-removebg-preview.png">
-<style>@media(max-width:768px){body{padding-bottom:80px}}</style>
+<style>@media(max-width:768px){body{padding-bottom:60px}}</style>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0 }
   html { scroll-behavior: smooth }
@@ -69,16 +69,17 @@
     font-size: 60px;
     font-weight: 800;
     color: #111;
-    line-height: 1.1;
+    line-height: 1.05;
     max-width: 720px;
     margin: 0 auto 20px;
+    letter-spacing: -1.5px;
   }
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 20px;
     color: #666;
-    max-width: 520px;
+    max-width: 480px;
     margin: 0 auto 36px;
-    line-height: 1.6;
+    line-height: 1.5;
   }
   .hero-buttons {
     display: flex;
@@ -652,8 +653,8 @@
   @media (max-width: 768px) {
     .nav-links { display: none }
     .hero { padding: 60px 20px }
-    .hero-title { font-size: 36px }
-    .hero-subtitle { font-size: 15px }
+    .hero-title { font-size: 42px }
+    .hero-subtitle { font-size: 17px }
     .stats-grid { grid-template-columns: repeat(2, 1fr) }
     .stat-item:nth-child(2) { border-right: none }
     .support-grid { grid-template-columns: 1fr; gap: 40px }
@@ -679,26 +680,17 @@
 <body>
 
 <!-- SEÇÃO 1 — Navbar -->
-<nav class="navbar">
-  <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-    <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports">
-    <span class="nav-logo-text-sports">F2 Sports</span>
-  </a>
-  <div class="nav-links">
-    <a href="#funcionalidades">Funcionalidades</a>
-    <a href="#como-funciona">Como Funciona</a>
-    <a href="#planos">Planos</a>
-    <a href="#suporte">Suporte</a>
-  </div>
-  <div class="nav-right">
-    <button class="btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar →</button>
+<nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e5e5e5;height:64px;display:flex;align-items:center;justify-content:center">
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:36px;height:36px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#000">F2</div>
+    <span style="font-size:18px;font-weight:800;color:#111">F2 Sports</span>
   </div>
 </nav>
 
 <!-- SEÇÃO 2 — Hero -->
 <section class="hero">
-  <h1 class="hero-title">Sua escolinha no celular.<br>Simples como o <span style="color:#d49f32">WhatsApp.</span></h1>
-  <p class="hero-subtitle">Cadastre alunos, controle pagamentos e faca a chamada — tudo pelo celular, em qualquer lugar. Sem treinamento, sem complicacao.</p>
+  <h1 class="hero-title">Sua escolinha.<br>Seu sistema.<br>Seu <span style="color:#d49f32">controle.</span></h1>
+  <p class="hero-subtitle">Simples como usar o WhatsApp.<br>Poderoso como um sistema profissional.</p>
   <div class="hero-buttons">
     <button class="btn-hero-main hero-btn-primary" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Quero assinar agora →</button>
     <button class="btn-hero-secondary" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">Ver como funciona</button>
@@ -955,7 +947,7 @@
 <!-- SEÇÃO 8 — Planos -->
 <section class="plans-section" id="planos">
   <div class="plans-badge-wrap"><span class="plans-badge">Escolha o plano ideal para sua escolinha</span></div>
-  <h2 class="section-title">Escolha seu plano</h2>
+  <h2 class="section-title">Escolha o plano ideal para sua escolinha</h2>
   <p class="section-subtitle">Simples e transparente. Sem taxas escondidas.</p>
   <div class="plans-grid">
 
@@ -1092,7 +1084,7 @@
 </section>
 
 <!-- SEÇÃO 12 — CTA final -->
-<section class="cta-final" id="contato">
+<section class="cta-final" id="cta-final">
   <h2 class="cta-title">Pronto para organizar sua escolinha?</h2>
   <p class="cta-subtitle">Garantia de 7 dias. Sua satisfacao ou dinheiro de volta.</p>
   <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="background:#d49f32;color:#000;font-size:18px;font-weight:800;height:62px;padding:0 52px;border-radius:14px;border:none;cursor:pointer;margin-top:36px;letter-spacing:-.3px">Quero assinar agora →</button>
@@ -1100,16 +1092,14 @@
 </section>
 
 <!-- SEÇÃO 13 — Footer -->
-<footer class="footer">
-  <div class="footer-left">
-    <img src="https://sistemaf2sports.com.br/logo-f2.png" alt="F2 Sports" style="height:32px;width:auto;object-fit:contain" onerror="this.style.display='none'">
-    <span style="color:#fff;font-size:13px;font-weight:700">F2 Sports</span>
-    <span class="footer-copy">© 2026 F2 Sports · Todos os direitos reservados</span>
-  </div>
-  <div class="footer-links">
-    <a href="#">Privacidade</a>
-    <a href="#">Termos</a>
-    <a href="https://wa.me/5545999723744">Contato</a>
+<footer style="background:#111;padding:32px 24px">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
+    <div style="display:flex;align-items:center;gap:8px">
+      <img src="https://sistemaf2sports.com.br/logo-f2.png" alt="F2 Sports" style="height:28px;width:auto;object-fit:contain" onerror="this.style.display='none'">
+      <span style="color:#fff;font-size:15px;font-weight:700">F2 Sports</span>
+    </div>
+    <div style="color:#555;font-size:12px">© 2026 F2 Sports</div>
+    <div style="color:#444;font-size:11px">Sistema de gestao para escolinhas esportivas</div>
   </div>
 </footer>
 
@@ -1130,21 +1120,33 @@
   });
 </script>
 
-<div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:#fff;border-top:1px solid #e5e5e5;z-index:999;box-shadow:0 -4px 16px rgba(0,0,0,0.08)">
-  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#d49f32;color:#000;font-size:16px;font-weight:800;height:52px;border-radius:10px;border:none;cursor:pointer">Quero assinar agora →</button>
+<div id="sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999">
+  <button onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})" style="width:100%;background:#000;color:#fff;font-size:16px;font-weight:800;height:60px;border:none;cursor:pointer;letter-spacing:-.3px;display:block">Quero assinar agora →</button>
 </div>
 
 <script>
 (function(){
   var heroCta = document.querySelector('.hero-btn-primary');
   var stickyCta = document.getElementById('sticky-cta');
-  var isMobile = window.innerWidth <= 768;
+  var ctaFinal = document.getElementById('cta-final');
 
   function checkVisibility(){
-    if(!isMobile) return;
+    if(window.innerWidth > 768){
+      stickyCta.style.display = 'none';
+      return;
+    }
     if(!heroCta) return;
-    var rect = heroCta.getBoundingClientRect();
-    if(rect.bottom < 0){
+
+    var heroRect = heroCta.getBoundingClientRect();
+    var heroGone = heroRect.bottom < 0;
+
+    var ctaVisible = false;
+    if(ctaFinal){
+      var ctaRect = ctaFinal.getBoundingClientRect();
+      ctaVisible = ctaRect.top < window.innerHeight;
+    }
+
+    if(heroGone && !ctaVisible){
       stickyCta.style.display = 'block';
     } else {
       stickyCta.style.display = 'none';
@@ -1152,11 +1154,7 @@
   }
 
   window.addEventListener('scroll', checkVisibility);
-  window.addEventListener('resize', function(){
-    isMobile = window.innerWidth <= 768;
-    if(!isMobile) stickyCta.style.display = 'none';
-    checkVisibility();
-  });
+  window.addEventListener('resize', checkVisibility);
 })();
 </script>
 
