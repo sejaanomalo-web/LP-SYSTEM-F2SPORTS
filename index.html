@@ -269,6 +269,27 @@
   .feat-card.feat-on { flex: 1 !important; }
   .feat-card.feat-on .feat-icon-wrap { opacity: 0 !important; position: absolute !important; pointer-events: none !important; }
   .feat-card.feat-on .feat-expanded { opacity: 1 !important; pointer-events: auto !important; }
+  /* Textos dos blocos 2.5x maiores */
+  .feat-expanded > div > div > span {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+  .feat-expanded > div > p {
+    font-size: 30px !important;
+    line-height: 1.35 !important;
+  }
+  .feat-expanded > div > div > div:first-child {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .feat-expanded > div > div > div:first-child svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .feat-expanded {
+    padding: 28px 28px 0 !important;
+  }
 
   /* Depoimentos */
   .testimonials-section {
@@ -710,8 +731,29 @@
     .mockup-mobile { display: none }
     .plans-grid { grid-template-columns: 1fr }
     .assinei-grid { grid-template-columns: 1fr !important }
-    #feat-row { height: 140px !important }
-    .feat-card { flex-basis: 44px !important; min-width: 44px !important }
+    #feat-row {
+      flex-direction: column !important;
+      height: auto !important;
+      gap: 10px !important;
+    }
+    .feat-card {
+      flex: 0 0 56px !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      padding-top: 16px !important;
+    }
+    .feat-card.feat-on {
+      flex: 0 0 360px !important;
+      padding-top: 0 !important;
+    }
+    .feat-expanded > div > div > span { font-size: 24px !important }
+    .feat-expanded > div > p { font-size: 18px !important }
+    .feat-expanded {
+      padding: 24px 24px 0 !important;
+    }
     .faq-container { padding: 0 16px }
     section { padding: 60px 20px }
     .navbar { padding: 0 20px }
@@ -747,7 +789,7 @@
 
 <!-- SEÇÃO 3 — Prova social (ticker) -->
 <section style="background:#f8f8f6;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;padding:18px 0;overflow:hidden">
-  <div style="display:flex;gap:0;animation:ticker 26s linear infinite;width:max-content">
+  <div style="display:flex;gap:0;animation:ticker 52s linear infinite;width:max-content">
     <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Ver como funciona</span>
     <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>Apenas 10 minutos para configurar</span>
     <span style="display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:14px;font-weight:600;color:#333;white-space:nowrap"><span style="color:#d49f32;font-size:18px">·</span>100% gerenciável pelo celular</span>
@@ -946,7 +988,7 @@
     <h2 style="font-size:36px;font-weight:800;color:#000;margin-bottom:6px;line-height:1.1">Tudo que você precisa!</h2>
     <p style="font-size:15px;color:rgba(0,0,0,0.45);margin-bottom:28px">Ferramentas simples para gerir sua escolinha do início ao fim</p>
 
-    <div id="feat-row" style="display:flex;gap:8px;height:180px">
+    <div id="feat-row" style="display:flex;gap:8px;height:320px">
 
       <div class="feat-card" data-i="0" style="background:#000;border-radius:14px;cursor:pointer;overflow:hidden;transition:flex .5s cubic-bezier(.4,0,.2,1);flex:0 0 56px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-width:56px">
         <div class="feat-icon-wrap" style="display:flex;align-items:center;justify-content:center;transition:opacity .2s">
@@ -1209,7 +1251,7 @@
     var cards = document.querySelectorAll('.feat-card');
     if(!cards.length) return;
     var cur = 0;
-    var DURATION = 3600;
+    var DURATION = 5000;
     var timer = null;
 
     function openCard(i, manual){
