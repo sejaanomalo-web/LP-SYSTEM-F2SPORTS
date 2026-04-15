@@ -310,8 +310,10 @@
 
   /* Planos */
   .plans-section {
-    background: #d49f32;
+    background-image: radial-gradient(ellipse at 50% 15%, rgba(255,220,160,0.55), transparent 55%), linear-gradient(180deg, #d49f32, #c59229);
     padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
   }
   .plans-section .section-subtitle { color: #5a3a00 }
   .plans-section .plan-name { color: #555 }
@@ -352,25 +354,26 @@
     align-items: start;
   }
   .plan-card {
-    border: 1px solid #e5e5e5;
+    border: 1px solid rgba(0,0,0,0.04);
     border-radius: 16px;
     padding: 40px 32px;
     background: #fff;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04), 0 14px 44px rgba(0,0,0,0.08);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
   }
   .plan-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-    border-color: #d49f32;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06), 0 28px 70px rgba(0,0,0,0.14);
+    border-color: rgba(0,0,0,0.08);
   }
   .plan-card.featured {
-    border: 2px solid #d49f32;
+    border: 1px solid rgba(212,159,50,0.35);
     position: relative;
-    box-shadow: 0 8px 32px rgba(212, 159, 50, 0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,159,50,0.3), 0 30px 80px rgba(212,159,50,0.32);
   }
   .plan-card.featured:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 44px rgba(212, 159, 50, 0.32);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,159,50,0.55), 0 40px 100px rgba(212,159,50,0.45);
   }
   /* Toggle mensal/anual — transicao suave nos precos */
   .plan-price, .plan-period {
@@ -407,6 +410,8 @@
     font-size: 52px;
     font-weight: 900;
     color: #d49f32;
+    letter-spacing: -1px;
+    text-shadow: 0 0 28px rgba(212,159,50,0.35);
   }
   .plan-price-note {
     font-size: 12px;
@@ -439,6 +444,7 @@
     font-size: 42px;
     font-weight: 800;
     color: #111;
+    letter-spacing: -0.8px;
   }
   .plan-price-period { font-size: 16px; color: #888; font-weight: 500 }
   .plan-desc {
@@ -635,15 +641,32 @@
 
   /* Assinei e agora (3 cards pretos) */
   .after-signup-section {
-    background: #f8f8f6;
+    background-image: radial-gradient(ellipse at 50% 100%, rgba(212,159,50,0.09), transparent 60%), linear-gradient(180deg, #f8f8f6, #f1f1ee);
     padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
   }
   .after-signup-section .section-title {
     font-size: 36px;
     color: #111;
+    letter-spacing: -0.5px;
   }
   .after-signup-section .section-subtitle {
     color: #888;
+  }
+  .assinei-grid > div {
+    background: linear-gradient(145deg, #0a0a0a 0%, #161616 100%) !important;
+    border: 1px solid rgba(212,159,50,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06), 0 18px 50px rgba(0,0,0,0.12);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s cubic-bezier(.2,.8,.2,1), border-color .3s ease;
+  }
+  .assinei-grid > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08), 0 30px 70px rgba(0,0,0,0.18), 0 0 0 1px rgba(212,159,50,0.25);
+    border-color: rgba(212,159,50,0.25);
+  }
+  .assinei-grid > div > div:first-child {
+    text-shadow: 0 0 40px rgba(212,159,50,0.3);
   }
 
   /* Suporte humano (nova secao após prova social) */
@@ -1400,7 +1423,14 @@
     prog.style.transition = 'width ' + DURATION + 'ms linear';
     prog.style.width = '100%';
     cur = i;
-    if (manual) { clearInterval(timer); timer = setInterval(autoNext, DURATION); }
+    if (manual) {
+      clearInterval(timer);
+      timer = setInterval(autoNext, DURATION);
+      var mockEl = document.getElementById('mock-content');
+      if (mockEl && mockEl.scrollIntoView) {
+        mockEl.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+      }
+    }
   }
   function autoNext() { activate((cur + 1) % MODS.length, false); }
   document.querySelectorAll('.mod-item').forEach(function(el, i){
