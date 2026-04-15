@@ -259,6 +259,21 @@
     line-height: 1.2;
     margin-bottom: 12px;
   }
+  /* Shimmer dourado contínuo na palavra 'profissional' */
+  @keyframes gold-shimmer {
+    0% { background-position: -150% 0 }
+    100% { background-position: 250% 0 }
+  }
+  .premium-shimmer {
+    background: linear-gradient(90deg, #a67c00 0%, #d49f32 30%, #f4d98a 50%, #d49f32 70%, #a67c00 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gold-shimmer 3.5s linear infinite;
+    font-weight: 900;
+  }
   .section-title-xl { font-size: 42px }
 
   /* Funcionalidades (cards expansiveis) */
@@ -401,32 +416,32 @@
     transform: translateY(-6px);
     box-shadow: 0 18px 44px rgba(212, 159, 50, 0.32);
   }
-  .plan-highlight {
-    background: #fdf3e0;
-    border: 1px solid #d49f32;
-    color: #a67c00;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 8px;
-    display: inline-block;
-    margin-bottom: 20px;
-    letter-spacing: -0.1px;
-  }
   /* Toggle mensal/anual — transicao suave nos precos */
   .plan-price, .plan-period {
     display: inline-block;
-    transition: opacity .2s ease, transform .2s ease;
+    transition: opacity .22s ease, transform .22s ease;
   }
   .plan-card.fading .plan-price,
   .plan-card.fading .plan-period {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   .economia-badge {
-    transition: opacity .28s ease .05s, transform .28s ease .05s;
+    background: #111 !important;
+    color: #d49f32 !important;
+    border: none !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+    width: fit-content;
+    margin: 10px auto 0 !important;
+    text-align: center;
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    transition: opacity .28s ease .08s, transform .28s ease .08s;
   }
   .economia-badge.show {
     opacity: 1;
@@ -803,7 +818,8 @@
     .navbar { padding: 0 20px }
     .footer { flex-direction: column; gap: 16px; text-align: center }
     .section-title { font-size: 28px }
-    .mockup-title { font-size: 24px; line-height: 1.25 }
+    .mockup-title { font-size: 22px; line-height: 1.3; white-space: normal }
+    .mockup-title br + span, .mockup-title span { white-space: normal }
     .section-title-xl { font-size: 31px }
     .cta-title { font-size: 30px }
   }
@@ -915,7 +931,7 @@
 
 <!-- SEÇÃO 5 — Mockup -->
 <section class="mockup-section">
-  <h2 class="mockup-title">Simples como usar o <span style="text-decoration:underline;text-decoration-color:#d49f32;text-underline-offset:4px">WhatsApp.</span><br>Poderoso como um sistema <span style="color:#d49f32">profissional.</span></h2>
+  <h2 class="mockup-title">Simples como o <span style="text-decoration:underline;text-decoration-color:#d49f32;text-underline-offset:4px">WhatsApp.</span><br>Poderoso como um sistema <span class="premium-shimmer">profissional.</span></h2>
   <!-- SUBSTITUIR MOCKUP POR VIDEO OU FOTO REAL -->
   <!-- <video autoplay muted loop playsinline style='width:100%;border-radius:12px'>
     <source src='demo-f2sports.mp4' type='video/mp4'>
@@ -1149,7 +1165,6 @@
       </div>
       <div class="economia-badge" style="display:none;background:#f0fdf4;border:1px solid #86efac;color:#166534;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;width:fit-content;margin:8px auto 0;text-align:center">Economia de R$ 194/ano</div>
       <div class="plan-desc">Para quem está começando</div>
-      <span class="plan-highlight">+ de 120 alunos cadastrados</span>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Até 120 alunos</li>
         <li><span class="plan-check">✓</span> Turmas e presenças</li>
@@ -1168,7 +1183,6 @@
       </div>
       <div class="economia-badge" style="display:none;background:#f0fdf4;border:1px solid #86efac;color:#166534;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;width:fit-content;margin:8px auto 0;text-align:center">Economia de R$ 274/ano</div>
       <div class="plan-desc">Para escolinhas em crescimento</div>
-      <span class="plan-highlight">+ de 450 alunos · todos os módulos</span>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Até 450 alunos</li>
         <li><span class="plan-check">✓</span> Todos os módulos</li>
@@ -1187,7 +1201,6 @@
       </div>
       <div class="economia-badge" style="display:none;background:#f0fdf4;border:1px solid #86efac;color:#166534;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;width:fit-content;margin:8px auto 0;text-align:center">Economia de R$ 494/ano</div>
       <div class="plan-desc">Para operações completas</div>
-      <span class="plan-highlight">alunos ilimitados · multi-modalidade</span>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span> Alunos ilimitados</li>
         <li><span class="plan-check">✓</span> Todos módulos Pro</li>
