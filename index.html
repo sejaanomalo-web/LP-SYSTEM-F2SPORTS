@@ -1294,7 +1294,9 @@
         c.classList.remove('feat-on');
         var p = c.querySelector('.feat-prog');
         p.style.transition = 'none';
-        p.style.width = '0';
+        p.style.width = '0%';
+        // flush: for reflow pra o reset pegar
+        void p.offsetWidth;
       });
       cards[i].classList.add('feat-on');
       cur = i;
@@ -1302,15 +1304,12 @@
         clearInterval(timer);
         timer = setInterval(autoNext, DURATION);
       }
-      var prog = cards[i].querySelector('.feat-prog');
-      // forca reflow antes de iniciar a animacao (evita salto)
-      prog.getBoundingClientRect();
-      requestAnimationFrame(function(){
-        requestAnimationFrame(function(){
-          prog.style.transition = 'width ' + PROGRESS_DURATION + 'ms linear';
-          prog.style.width = '100%';
-        });
-      });
+      setTimeout(function(){
+        var p = cards[i].querySelector('.feat-prog');
+        if(!p) return;
+        p.style.transition = 'width ' + PROGRESS_DURATION + 'ms linear';
+        p.style.width = '100%';
+      }, 50);
     }
 
     function autoNext(){ openCard((cur + 1) % cards.length, false); }
