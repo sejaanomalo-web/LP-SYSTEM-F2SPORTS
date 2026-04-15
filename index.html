@@ -9,7 +9,14 @@
 <style>@media(max-width:768px){body{padding-bottom:60px}}</style>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0 }
-  html { scroll-behavior: smooth }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto }
+  }
+  body { overscroll-behavior-y: contain }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background: #ffffff;
@@ -542,8 +549,16 @@
     font-size: 14px;
     color: #666;
     line-height: 1.7;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    overflow: hidden;
+    transition: max-height .45s cubic-bezier(.2,.8,.2,1), opacity .3s ease, padding-top .3s ease;
+  }
+  .faq-answer.open {
+    max-height: 600px;
+    opacity: 1;
     padding-top: 12px;
-    display: none;
   }
 
   /* CTA final */
@@ -1058,7 +1073,7 @@
 </section>
 
 <!-- SEÇÃO 13 — Footer -->
-<footer style="background:#111;padding:32px 24px">
+<footer style="background:#000;padding:32px 24px">
   <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
     <div style="display:flex;align-items:center;gap:8px">
       <img src="https://sistemaf2sports.com.br/logo-f2.png" alt="F2 Sports" style="height:28px;width:auto;object-fit:contain" onerror="this.style.display='none'">
@@ -1153,11 +1168,11 @@
     item.querySelector('.faq-question').addEventListener('click', () => {
       const answer = item.querySelector('.faq-answer');
       const arrow = item.querySelector('.faq-arrow');
-      const isOpen = answer.style.display === 'block';
-      document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
       document.querySelectorAll('.faq-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
       if (!isOpen) {
-        answer.style.display = 'block';
+        answer.classList.add('open');
         arrow.style.transform = 'rotate(90deg)';
       }
     });
