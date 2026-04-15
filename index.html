@@ -232,33 +232,7 @@
     max-width: 960px;
   }
 
-  /* Mockup */
-  .mockup-section {
-    background: #f8f8f6;
-    padding: 80px 40px;
-  }
-  .mockup-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 40px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .mockup-caption {
-    font-size: 12px;
-    color: #999;
-    text-align: center;
-    margin-top: 12px;
-  }
-  .mockup-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: #111;
-    text-align: center;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
+  /* Mockup — estilos inline, apenas premium-shimmer abaixo */
   /* Shimmer dourado contínuo na palavra 'profissional' */
   @keyframes gold-shimmer {
     0% { background-position: -150% 0 }
@@ -770,8 +744,7 @@
     .support-heading { font-size: 28px }
     .pain-grid { grid-template-columns: 1fr }
     .pain-cta-arrow { transform: rotate(90deg) }
-    .mockup-grid { grid-template-columns: 1fr }
-    .mockup-mobile { display: none }
+    .mockup-grid { grid-template-columns: 1fr !important; gap: 32px !important }
     .plans-grid { grid-template-columns: 1fr }
     .assinei-grid { grid-template-columns: 1fr !important }
     #feat-row {
@@ -822,8 +795,6 @@
     .navbar { padding: 0 20px }
     .footer { flex-direction: column; gap: 16px; text-align: center }
     .section-title { font-size: 28px }
-    .mockup-title { font-size: 24px; line-height: 1.3; white-space: normal }
-    .mockup-title br + span, .mockup-title span { white-space: normal }
     .section-title-xl { font-size: 31px }
     .cta-title { font-size: 30px }
   }
@@ -909,114 +880,119 @@
   </div>
 </section>
 
-<!-- SEÇÃO 5 — Mockup -->
-<section class="mockup-section">
-  <h2 class="mockup-title">Simples como o <span style="text-decoration:underline;text-decoration-color:#d49f32;text-underline-offset:4px">WhatsApp.</span><br>Poderoso como um sistema <span class="premium-shimmer">profissional.</span></h2>
-  <!-- SUBSTITUIR MOCKUP POR VIDEO OU FOTO REAL -->
-  <!-- <video autoplay muted loop playsinline style='width:100%;border-radius:12px'>
-    <source src='demo-f2sports.mp4' type='video/mp4'>
-  </video> -->
-  <div class="mockup-grid">
-    <!-- Mockup Desktop -->
-    <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 8px 32px rgba(0,0,0,0.08)">
-      <div style="background:#1a1a1a;padding:10px 16px;display:flex;align-items:center;gap:8px">
-        <div style="width:10px;height:10px;border-radius:50%;background:#ef4444"></div>
-        <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b"></div>
-        <div style="width:10px;height:10px;border-radius:50%;background:#22c55e"></div>
-        <div style="flex:1;background:#2a2a2a;border-radius:4px;padding:4px 12px;margin-left:8px;font-size:11px;color:#666;font-family:monospace">sistemaf2sports.com.br/dashboard</div>
-      </div>
-      <div style="background:#f8f8f6;padding:16px">
-        <div style="background:#000;border-radius:8px;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div style="width:24px;height:24px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#000">F2</div>
-            <span style="color:#fff;font-size:12px;font-weight:600">F2 Sports</span>
+<!-- SEÇÃO 5 — Mockup (prints reais) -->
+<section style="background:#f8f8f6;padding:80px 40px">
+  <div class="mockup-grid" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start">
+
+    <!-- COLUNA ESQUERDA — título + features -->
+    <div>
+      <h2 style="font-size:36px;font-weight:800;color:#111;line-height:1.15;margin-bottom:24px">
+        Simples como o
+        <span style="text-decoration:underline;text-decoration-color:#d49f32;text-underline-offset:5px;color:#111">WhatsApp.</span><br>
+        Poderoso como um sistema
+        <span class="premium-shimmer">profissional.</span>
+      </h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5">
+          <div style="width:36px;height:36px;border-radius:9px;background:#fdf3e0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 20c0-4 2.7-7 6-7s6 3 6 7"/></svg>
           </div>
-          <span style="color:#d49f32;font-size:11px;font-weight:500">ABF Cascavel</span>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
-          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
-            <div style="font-size:9px;color:#888">Mensalidades</div>
-            <div style="font-size:14px;font-weight:700;color:#111">R$ 560</div>
-          </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
-            <div style="font-size:9px;color:#888">Alunos</div>
-            <div style="font-size:14px;font-weight:700;color:#111">47</div>
-          </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32">
-            <div style="font-size:9px;color:#888">Turmas</div>
-            <div style="font-size:14px;font-weight:700;color:#111">8</div>
-          </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #e24b4a">
-            <div style="font-size:9px;color:#888">Inadimplentes</div>
-            <div style="font-size:14px;font-weight:700;color:#e24b4a">3</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:2px">Gestão de alunos e turmas</div>
+            <div style="font-size:12px;color:#888;line-height:1.5">Cadastro completo com responsável e histórico num lugar só</div>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
-            <div style="font-size:10px;font-weight:600;color:#111">Alunos</div>
-            <div style="font-size:9px;color:#888">Gerenciar</div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5">
+          <div style="width:36px;height:36px;border-radius:9px;background:#fdf3e0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5"/></svg>
           </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
-            <div style="font-size:10px;font-weight:600;color:#111">Turmas</div>
-            <div style="font-size:9px;color:#888">Horários</div>
-          </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
-            <div style="font-size:10px;font-weight:600;color:#111">Financeiro</div>
-            <div style="font-size:9px;color:#888">Cobrancas</div>
-          </div>
-          <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e5e5e5">
-            <div style="font-size:10px;font-weight:600;color:#111">Presencas</div>
-            <div style="font-size:9px;color:#888">Chamada</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:2px">Presença digital no celular</div>
+            <div style="font-size:12px;color:#888;line-height:1.5">Chamada em 1 clique. Sem papel, funciona offline</div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5">
+          <div style="width:36px;height:36px;border-radius:9px;background:#fdf3e0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v1m0 8v1M9.5 9.5c.5-1 1.3-1.5 2.5-1.5s2.5.8 2.5 2c0 2.5-5 2-5 4.5 0 1.2 1 2 2.5 2s2.5-.8 2.5-2"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:2px">Cobranças PIX automáticas</div>
+            <div style="font-size:12px;color:#888;line-height:1.5">Geradas sozinhas todo mês. Você vê quem pagou em tempo real</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5">
+          <div style="width:36px;height:36px;border-radius:9px;background:#fdf3e0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 4.97-4.03 9-9 9a8.96 8.96 0 01-4.29-1.08L3 21l1.08-4.71A8.96 8.96 0 013 12c0-4.97 4.03-9 9-9s9 4.03 9 9z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:2px">WhatsApp com 1 clique</div>
+            <div style="font-size:12px;color:#888;line-height:1.5">Mensagem pronta para cobrar, avisar ou parabenizar</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5">
+          <div style="width:36px;height:36px;border-radius:9px;background:#fdf3e0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:2px">Relatório mensal em PDF</div>
+            <div style="font-size:12px;color:#888;line-height:1.5">Resumo completo de presença e financeiro. Exporta em 1 clique</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Mockup Mobile -->
-    <div class="mockup-mobile">
-      <div style="width:200px;margin:0 auto;background:#111;border-radius:32px;padding:8px;border:3px solid #222">
-        <div style="background:#f8f8f6;border-radius:26px;overflow:hidden">
-          <div style="background:#000;padding:8px 14px;display:flex;justify-content:space-between;align-items:center">
-            <span style="color:#fff;font-size:9px;font-weight:600">10:54</span>
-            <div style="display:flex;gap:4px;align-items:center">
-              <span style="color:#fff;font-size:8px">●●●</span>
-              <span style="color:#fff;font-size:8px">WiFi</span>
+    <!-- COLUNA DIREITA — prints reais empilhados -->
+    <div style="display:flex;flex-direction:column;gap:24px">
+
+      <!-- Desktop -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:6px;height:6px;border-radius:50%;background:#d49f32"></div>
+          <span style="font-size:11px;font-weight:600;color:#888;letter-spacing:.06em;text-transform:uppercase">PC</span>
+        </div>
+        <div style="border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 4px 20px rgba(0,0,0,0.06)">
+          <div style="background:#1a1a1a;padding:8px 14px;display:flex;align-items:center;gap:6px">
+            <div style="display:flex;gap:5px">
+              <div style="width:9px;height:9px;border-radius:50%;background:#ef4444"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#f59e0b"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#22c55e"></div>
             </div>
+            <div style="flex:1;background:#2a2a2a;border-radius:4px;padding:3px 10px;font-size:10px;color:#555;font-family:monospace;margin:0 8px">sistemaf2sports.com.br/dashboard</div>
           </div>
-          <div style="background:#000;padding:8px 14px;display:flex;align-items:center;gap:6px">
-            <div style="width:18px;height:18px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;color:#000">F2</div>
-            <span style="color:#fff;font-size:10px;font-weight:600">F2 Sports</span>
+          <img src="screenshot-desktop.png" alt="Sistema F2 Sports no computador" style="width:100%;display:block" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;background:#f8f8f6;height:200px;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <span style="font-size:12px;color:#888">Print do desktop aqui</span>
           </div>
-          <div style="padding:10px">
-            <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:2px">ABF Cascavel</div>
-            <div style="font-size:9px;color:#888;margin-bottom:10px">Plano Pro</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
-              <div style="background:#fff;border-radius:8px;padding:8px;border-top:2px solid #d49f32">
-                <div style="font-size:8px;color:#888">Alunos</div>
-                <div style="font-size:13px;font-weight:700;color:#111">47</div>
-              </div>
-              <div style="background:#fff;border-radius:8px;padding:8px;border-top:2px solid #e24b4a">
-                <div style="font-size:8px;color:#888">Inadimp.</div>
-                <div style="font-size:13px;font-weight:700;color:#e24b4a">3</div>
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:5px">
-              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
-                <span style="font-size:9px;font-weight:600;color:#111">Alunos</span>
-                <span style="font-size:10px;color:#d49f32">›</span>
-              </div>
-              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
-                <span style="font-size:9px;font-weight:600;color:#111">Financeiro</span>
-                <span style="font-size:10px;color:#d49f32">›</span>
-              </div>
-              <div style="background:#fff;border-radius:6px;padding:7px 10px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:space-between">
-                <span style="font-size:9px;font-weight:600;color:#111">Presencas</span>
-                <span style="font-size:10px;color:#d49f32">›</span>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div style="display:flex;gap:20px;align-items:flex-start">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+            <div style="width:6px;height:6px;border-radius:50%;background:#d49f32"></div>
+            <span style="font-size:11px;font-weight:600;color:#888;letter-spacing:.06em;text-transform:uppercase">Celular</span>
+          </div>
+          <div style="background:#111;border-radius:28px;padding:7px;max-width:200px;margin:0 auto;box-shadow:0 8px 32px rgba(0,0,0,0.15)">
+            <div style="border-radius:22px;overflow:hidden">
+              <img src="screenshot-mobile.png" alt="Sistema F2 Sports no celular" style="width:100%;display:block" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div style="display:none;background:#f8f8f6;height:280px;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d49f32" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <span style="font-size:11px;color:#888">Print do celular aqui</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
