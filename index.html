@@ -310,9 +310,20 @@
 
   /* Planos */
   .plans-section {
-    background: #fff;
+    background: #d49f32;
     padding: 100px 40px;
   }
+  .plans-section .section-subtitle { color: #5a3a00 }
+  .plans-section .plan-name { color: #555 }
+  .plan-card.featured {
+    background: #000 !important;
+    color: #fff !important;
+  }
+  .plan-card.featured .plan-name { color: #fff }
+  .plan-card.featured .plan-desc { color: #aaa }
+  .plan-card.featured .plan-price-note { color: #888 }
+  .plan-card.featured .plan-features li { color: #ddd }
+  .plan-card.featured .plan-price-period { color: #aaa }
   .plans-section .section-title {
     font-size: 44px;
     font-weight: 800;
@@ -803,14 +814,10 @@
       <p style="font-size:13px;color:#888;margin-bottom:24px;line-height:1.5">Clique em qualquer módulo para ver como funciona.</p>
       <div id="modulos-list" style="display:flex;flex-direction:column;gap:6px">
         <div class="mod-item" data-mod="dashboard" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Dashboard</div><div style="font-size:12px;color:#888">Visão geral da escolinha</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="presencas" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Presenças</div><div style="font-size:12px;color:#888">Lista de chamada</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="experimentais" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Experimentais</div><div style="font-size:12px;color:#888">Agendar aulas de teste</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
         <div class="mod-item" data-mod="alunos" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Alunos</div><div style="font-size:12px;color:#888">Cadastrar e gerenciar</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
+        <div class="mod-item" data-mod="mensalidades" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Mensalidades</div><div style="font-size:12px;color:#888">Controle de pagamentos</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
         <div class="mod-item" data-mod="turmas" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Turmas</div><div style="font-size:12px;color:#888">Horários e modalidades</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="professores" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Professores</div><div style="font-size:12px;color:#888">Cadastrar e gerenciar</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="financeiro" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Financeiro</div><div style="font-size:12px;color:#888">Controle de pagamentos</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="despesas" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Despesas</div><div style="font-size:12px;color:#888">Controle de gastos</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
-        <div class="mod-item" data-mod="competicoes" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Competições</div><div style="font-size:12px;color:#888">Torneios e campeonatos</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
+        <div class="mod-item" data-mod="experimentais" style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;cursor:pointer"><div><div style="font-size:14px;font-weight:600;color:#111">Experimentais</div><div style="font-size:12px;color:#888">Agendar aulas de teste</div></div><span style="color:#d49f32;font-size:18px;font-weight:300;transition:transform .2s">›</span></div>
       </div>
     </div>
     <div>
@@ -828,7 +835,7 @@
             <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" style="width:22px;height:22px;object-fit:contain;border-radius:4px">
             <span style="color:#fff;font-size:11px;font-weight:700">F2 Sports</span>
           </div>
-          <span style="color:#d49f32;font-size:10px;font-weight:500">ABF Cascavel</span>
+          <span style="color:#d49f32;font-size:10px;font-weight:500">Sua Escolinha</span>
         </div>
         <div id="mock-content" style="background:#f8f8f6;padding:16px;min-height:360px;transition:opacity .25s ease"></div>
       </div>
@@ -845,7 +852,7 @@
 
 <!-- SEÇÃO 8 — Planos -->
 <section class="plans-section" id="planos">
-  <h2 class="section-title reveal">Escolha o plano ideal para sua escolinha</h2>
+  <h2 class="section-title reveal">Escolha o plano ideal para sua <span style="font-weight:800;color:#000;font-style:italic">Escolinha:</span></h2>
   <p class="section-subtitle">Simples e transparente. Sem taxas escondidas.</p>
   <div class="plans-toggle" style="display:flex;align-items:center;justify-content:center;gap:0;margin:32px auto 40px;background:#f8f8f6;border-radius:40px;padding:4px;width:fit-content;flex-wrap:wrap">
     <button id="toggle-mensal" onclick="setPlano('mensal')" style="padding:10px 28px;border-radius:36px;border:none;cursor:pointer;font-size:14px;font-weight:700;background:#111;color:#fff;transition:all .25s">Mensal</button>
@@ -1147,26 +1154,203 @@
 (function(){
   var MODS = [
     {id:'dashboard',    label:'Dashboard',    url:'sistemaf2sports.com.br/dashboard'},
-    {id:'presencas',    label:'Presenças',    url:'sistemaf2sports.com.br/presencas'},
-    {id:'experimentais',label:'Experimentais',url:'sistemaf2sports.com.br/experimental'},
     {id:'alunos',       label:'Alunos',       url:'sistemaf2sports.com.br/alunos'},
+    {id:'mensalidades', label:'Mensalidades', url:'sistemaf2sports.com.br/mensalidades'},
     {id:'turmas',       label:'Turmas',       url:'sistemaf2sports.com.br/turmas'},
-    {id:'professores',  label:'Professores',  url:'sistemaf2sports.com.br/professores'},
-    {id:'financeiro',   label:'Financeiro',   url:'sistemaf2sports.com.br/financeiro'},
-    {id:'despesas',     label:'Despesas',     url:'sistemaf2sports.com.br/despesas'},
-    {id:'competicoes',  label:'Competições',  url:'sistemaf2sports.com.br/competicoes'}
+    {id:'experimentais',label:'Experimentais',url:'sistemaf2sports.com.br/experimental'}
   ];
   var mockups = {
-    dashboard: `<div style="margin-bottom:12px"><div style="font-size:15px;font-weight:800;color:#111">ABF Cascavel</div><div style="font-size:10px;color:#888">Plano Pro</div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px"><div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32"><div style="font-size:8px;color:#888">Mensalidades</div><div style="font-size:13px;font-weight:700;color:#111">R$ 560</div></div><div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #e24b4a"><div style="font-size:8px;color:#888">Despesas</div><div style="font-size:13px;font-weight:700;color:#e24b4a">R$ 540</div></div><div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #d49f32"><div style="font-size:8px;color:#888">Alunos</div><div style="font-size:13px;font-weight:700;color:#111">47</div></div><div style="background:#fff;border-radius:8px;padding:10px;border-top:2px solid #e24b4a"><div style="font-size:8px;color:#888">Inadimplentes</div><div style="font-size:13px;font-weight:700;color:#e24b4a">3</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px"><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Presenças</div><div style="font-size:8px;color:#888">Chamada</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Alunos</div><div style="font-size:8px;color:#888">Cadastrar</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Financeiro</div><div style="font-size:8px;color:#888">Cobranças</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Turmas</div><div style="font-size:8px;color:#888">Horários</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Professores</div><div style="font-size:8px;color:#888">Gerenciar</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Mensalidades</div><div style="font-size:8px;color:#888">Pagamentos</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Despesas</div><div style="font-size:8px;color:#888">Gastos</div></div><div style="background:#fff;border-radius:7px;padding:9px;border:0.5px solid #e5e5e5"><div style="font-size:9px;font-weight:600;color:#111">Competições</div><div style="font-size:8px;color:#888">Torneios</div></div></div>`,
-    presencas: `<div style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Lista de Presença</div><div style="font-size:10px;color:#888">Ter, 15 Abr 2025</div></div><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #d49f32;margin-bottom:10px;font-size:10px;color:#111;font-weight:600">Futsal Unioeste — 08:00</div><div style="display:flex;flex-direction:column;gap:5px"><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;font-weight:600;color:#111">João Silva</span><div style="width:22px;height:22px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2e7d32;font-weight:700">P</div></div><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;font-weight:600;color:#111">Pedro Costa</span><div style="width:22px;height:22px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2e7d32;font-weight:700">P</div></div><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;font-weight:600;color:#111">Lucas Mendes</span><div style="width:22px;height:22px;border-radius:50%;background:#fef2f2;display:flex;align-items:center;justify-content:center;font-size:9px;color:#e24b4a;font-weight:700">F</div></div><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;font-weight:600;color:#111">Marcos Souza</span><div style="width:22px;height:22px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2e7d32;font-weight:700">P</div></div><div style="background:#fff;border-radius:7px;padding:8px 12px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;font-weight:600;color:#111">Rafael Lima</span><div style="width:22px;height:22px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2e7d32;font-weight:700">P</div></div></div><div style="margin-top:10px;text-align:center;font-size:10px;color:#888">4 presentes · 1 falta</div>`,
-    experimentais: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Aulas Experimentais</div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Agendar</div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px"><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #d49f32"><div style="font-size:7px;color:#888">Agendadas</div><div style="font-size:14px;font-weight:700;color:#111">8</div></div><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #2e7d32"><div style="font-size:7px;color:#888">Realizadas</div><div style="font-size:14px;font-weight:700;color:#111">5</div></div><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #378ADD"><div style="font-size:7px;color:#888">Convertidas</div><div style="font-size:14px;font-weight:700;color:#111">3</div></div></div><div style="display:flex;flex-direction:column;gap:5px"><div style="background:#fff;border-radius:7px;padding:9px 11px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:10px;font-weight:600;color:#111">Carlos Henrique</div><div style="font-size:8px;color:#888">Futsal · 16/04 às 09:00</div></div><span style="background:#fdf3e0;color:#a67c00;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">agendada</span></div><div style="background:#fff;border-radius:7px;padding:9px 11px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:10px;font-weight:600;color:#111">Ana Beatriz</div><div style="font-size:8px;color:#888">Sub-11 · 17/04 às 15:00</div></div><span style="background:#fdf3e0;color:#a67c00;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">agendada</span></div><div style="background:#fff;border-radius:7px;padding:9px 11px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:10px;font-weight:600;color:#111">Gabriel Rocha</div><div style="font-size:8px;color:#888">Futsal · 14/04 às 08:00</div></div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">convertido</span></div></div>`,
-    alunos: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Alunos <span style="font-size:10px;color:#888;font-weight:400">47 ativos</span></div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Novo Aluno</div></div><div style="display:flex;flex-direction:column;gap:5px"><div style="background:#fff;border-radius:8px;padding:10px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#a67c00;flex-shrink:0">JS</div><div style="flex:1"><div style="font-size:10px;font-weight:600;color:#111">João Silva</div><div style="font-size:8px;color:#888">Futsal Unioeste</div></div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:10px">pago</span></div><div style="background:#fff;border-radius:8px;padding:10px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#a67c00;flex-shrink:0">PC</div><div style="flex:1"><div style="font-size:10px;font-weight:600;color:#111">Pedro Costa</div><div style="font-size:8px;color:#888">Futsal Unioeste</div></div><span style="background:#fdf3e0;color:#a67c00;font-size:8px;font-weight:600;padding:2px 7px;border-radius:10px">pendente</span></div><div style="background:#fff;border-radius:8px;padding:10px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#a67c00;flex-shrink:0">LM</div><div style="flex:1"><div style="font-size:10px;font-weight:600;color:#111">Lucas Mendes</div><div style="font-size:8px;color:#888">Sub-13</div></div><span style="background:#fef2f2;color:#e24b4a;font-size:8px;font-weight:600;padding:2px 7px;border-radius:10px">vencido</span></div><div style="background:#fff;border-radius:8px;padding:10px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#a67c00;flex-shrink:0">MS</div><div style="flex:1"><div style="font-size:10px;font-weight:600;color:#111">Marcos Souza</div><div style="font-size:8px;color:#888">Sub-11</div></div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:10px">pago</span></div></div>`,
-    turmas: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Turmas</div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Nova Turma</div></div><div style="display:flex;flex-direction:column;gap:6px"><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="font-size:11px;font-weight:700;color:#111">Futsal Unioeste</div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">ativo</span></div><div style="font-size:9px;color:#888;margin-bottom:3px">Futsal · 20 vagas · R$ 140/mês</div><div style="font-size:9px;color:#d49f32;font-weight:500">Seg, Qua, Sex · 08:00–09:00</div></div><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="font-size:11px;font-weight:700;color:#111">Sub-13 Futebol</div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">ativo</span></div><div style="font-size:9px;color:#888;margin-bottom:3px">Futebol · 15 vagas · R$ 120/mês</div><div style="font-size:9px;color:#d49f32;font-weight:500">Ter, Qui · 15:00–16:30</div></div><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="font-size:11px;font-weight:700;color:#111">Futbaby</div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">ativo</span></div><div style="font-size:9px;color:#888;margin-bottom:3px">Futsal · 10 vagas · R$ 100/mês</div><div style="font-size:9px;color:#d49f32;font-weight:500">Sáb · 09:00–10:00</div></div></div>`,
-    professores: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Professores</div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Novo</div></div><div style="display:flex;flex-direction:column;gap:5px"><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#a67c00;flex-shrink:0">CS</div><div style="flex:1"><div style="font-size:11px;font-weight:600;color:#111">Carlos Santos</div><div style="font-size:9px;color:#888">Futsal Unioeste · Sub-13</div></div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">ativo</span></div><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:#fdf3e0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#a67c00;flex-shrink:0">MO</div><div style="flex:1"><div style="font-size:11px;font-weight:600;color:#111">Marcos Oliveira</div><div style="font-size:9px;color:#888">Futbaby · Sub-11</div></div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">ativo</span></div></div>`,
-    financeiro: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Financeiro — Abril 2025</div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px"><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #2e7d32"><div style="font-size:7px;color:#888">Recebido</div><div style="font-size:11px;font-weight:700;color:#111">R$ 3.640</div></div><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #d49f32"><div style="font-size:7px;color:#888">Pendente</div><div style="font-size:11px;font-weight:700;color:#111">R$ 420</div></div><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #e24b4a"><div style="font-size:7px;color:#888">Vencido</div><div style="font-size:11px;font-weight:700;color:#e24b4a">R$ 280</div></div></div><div style="display:flex;flex-direction:column;gap:4px"><div style="background:#fff;border-radius:7px;padding:8px 10px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:9px;font-weight:600;color:#111">João Silva</div><div style="font-size:8px;color:#888">Venc: 05/04</div></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:9px;font-weight:700;color:#111">R$ 140</span><span style="background:#e8f5e9;color:#2e7d32;font-size:7px;font-weight:600;padding:2px 6px;border-radius:8px">pago</span></div></div><div style="background:#fff;border-radius:7px;padding:8px 10px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:9px;font-weight:600;color:#111">Pedro Costa</div><div style="font-size:8px;color:#888">Venc: 10/04</div></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:9px;font-weight:700;color:#111">R$ 140</span><span style="background:#fdf3e0;color:#a67c00;font-size:7px;font-weight:600;padding:2px 6px;border-radius:8px">pendente</span></div></div><div style="background:#fef2f2;border-radius:7px;padding:8px 10px;border:0.5px solid #fca5a5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:9px;font-weight:600;color:#111">Lucas Mendes</div><div style="font-size:8px;color:#e24b4a">Venc: 01/04</div></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:9px;font-weight:700;color:#e24b4a">R$ 140</span><span style="background:#fef2f2;color:#e24b4a;font-size:7px;font-weight:600;padding:2px 6px;border-radius:8px">vencido</span></div></div></div><div style="margin-top:8px"><div style="background:#e24b4a;color:#fff;font-size:9px;font-weight:700;padding:7px 12px;border-radius:7px;text-align:center">Cobrar todos os inadimplentes (2)</div></div>`,
-    despesas: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Despesas — Abril 2025</div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Nova</div></div><div style="background:#fff;border-radius:7px;padding:8px;border-top:2px solid #e24b4a;margin-bottom:10px;text-align:center"><div style="font-size:8px;color:#888">Total de despesas</div><div style="font-size:16px;font-weight:800;color:#e24b4a">R$ 540,00</div></div><div style="display:flex;flex-direction:column;gap:5px"><div style="background:#fff;border-radius:7px;padding:9px 11px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:10px;font-weight:600;color:#111">Aluguel da quadra</div><div style="font-size:8px;color:#888">01/04/2025</div></div><span style="font-size:10px;font-weight:700;color:#e24b4a">R$ 400</span></div><div style="background:#fff;border-radius:7px;padding:9px 11px;border:0.5px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:10px;font-weight:600;color:#111">Material esportivo</div><div style="font-size:8px;color:#888">05/04/2025</div></div><span style="font-size:10px;font-weight:700;color:#e24b4a">R$ 140</span></div></div>`,
-    competicoes: `<div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px;font-weight:700;color:#111">Competições</div><div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Nova</div></div><div style="display:flex;flex-direction:column;gap:6px"><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="font-size:11px;font-weight:700;color:#111">Copa Regional Sub-13</div><span style="background:#e8f5e9;color:#2e7d32;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">Campeão</span></div><div style="font-size:9px;color:#888;margin-bottom:4px">Futsal · Cascavel · 10/03/2025</div><div style="font-size:9px;color:#d49f32;font-weight:500">12 atletas convocados</div></div><div style="background:#fff;border-radius:8px;padding:11px 12px;border:0.5px solid #e5e5e5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="font-size:11px;font-weight:700;color:#111">Torneio Municipal</div><span style="background:#fdf3e0;color:#a67c00;font-size:8px;font-weight:600;padding:2px 7px;border-radius:8px">Em breve</span></div><div style="font-size:9px;color:#888;margin-bottom:4px">Futebol · Cascavel · 20/04/2025</div><div style="font-size:9px;color:#d49f32;font-weight:500">8 atletas convocados</div></div></div>`
+
+    dashboard: `
+      <div style="margin-bottom:14px">
+        <div style="font-size:15px;font-weight:800;color:#111">Sua Escolinha</div>
+        <div style="font-size:10px;color:#888">Plano pro</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #d49f32">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">💲 Mensalidades</div>
+          <div style="font-size:14px;font-weight:800;color:#111">R$ 560,00</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #e24b4a">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">📉 Despesas</div>
+          <div style="font-size:14px;font-weight:800;color:#e24b4a">R$ 540,00</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #d49f32">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">👥 Alunos</div>
+          <div style="font-size:14px;font-weight:800;color:#111">4</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #e24b4a">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">⚠️ Inadimplentes</div>
+          <div style="font-size:14px;font-weight:800;color:#e24b4a">0</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #d49f32">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">🏫 Turmas</div>
+          <div style="font-size:14px;font-weight:800;color:#111">2</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:12px;border-top:2px solid #d49f32">
+          <div style="font-size:9px;color:#888;margin-bottom:4px">👤 Professores</div>
+          <div style="font-size:14px;font-weight:800;color:#111">1</div>
+        </div>
+      </div>`,
+
+    alunos: `
+      <div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#111">Alunos</div>
+          <div style="font-size:9px;color:#888">4 ativo(s) · 4 total</div>
+        </div>
+        <div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Novo Aluno</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+        <div style="background:#fff;border-radius:8px;padding:10px;border:0.5px solid #e5e5e5;text-align:center">
+          <div style="font-size:16px;font-weight:800;color:#d49f32">4</div>
+          <div style="font-size:8px;color:#888">Ativos</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:0.5px solid #e5e5e5;text-align:center">
+          <div style="font-size:16px;font-weight:800;color:#888">0</div>
+          <div style="font-size:8px;color:#888">Inativos</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:0.5px solid #e5e5e5;text-align:center">
+          <div style="font-size:16px;font-weight:800;color:#111">4</div>
+          <div style="font-size:8px;color:#888">Total</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:0.5px solid #e5e5e5;text-align:center">
+          <div style="font-size:16px;font-weight:800;color:#d49f32">0</div>
+          <div style="font-size:8px;color:#888">Aniversariantes</div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;overflow:hidden">
+        <div style="padding:9px 12px;border-bottom:0.5px solid #f0f0f0;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">F</div>
+          <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#111">Felipe Alves</div><div style="font-size:8px;color:#888">Joana felixez</div></div>
+          <div style="background:#d49f32;color:#000;font-size:8px;font-weight:700;padding:4px 8px;border-radius:6px">Ver ficha</div>
+        </div>
+        <div style="padding:9px 12px;border-bottom:0.5px solid #f0f0f0;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">J</div>
+          <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#111">Joao</div><div style="font-size:8px;color:#888">Sem responsavel</div></div>
+          <div style="background:#d49f32;color:#000;font-size:8px;font-weight:700;padding:4px 8px;border-radius:6px">Ver ficha</div>
+        </div>
+        <div style="padding:9px 12px;border-bottom:0.5px solid #f0f0f0;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">J</div>
+          <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#111">João Felix</div><div style="font-size:8px;color:#888">Antonio carlos</div></div>
+          <div style="background:#d49f32;color:#000;font-size:8px;font-weight:700;padding:4px 8px;border-radius:6px">Ver ficha</div>
+        </div>
+        <div style="padding:9px 12px;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">J</div>
+          <div style="flex:1"><div style="font-size:10px;font-weight:700;color:#111">João guilherme</div><div style="font-size:8px;color:#888">Joaquim</div></div>
+          <div style="background:#d49f32;color:#000;font-size:8px;font-weight:700;padding:4px 8px;border-radius:6px">Ver ficha</div>
+        </div>
+      </div>`,
+
+    mensalidades: `
+      <div style="margin-bottom:12px">
+        <div style="font-size:13px;font-weight:800;color:#111">Mensalidades</div>
+        <div style="font-size:9px;color:#888">Controle de pagamentos</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
+        <div style="background:#fff;border-radius:10px;padding:11px 13px;border:0.5px solid #e5e5e5;border-top:2px solid #d49f32">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><span style="color:#d49f32;font-size:10px">🕐</span><span style="font-size:9px;color:#888">Pendentes</span></div>
+          <div style="font-size:15px;font-weight:800;color:#111">R$ 280,00</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:11px 13px;border:0.5px solid #e5e5e5;border-top:2px solid #2e7d32">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><span style="color:#2e7d32;font-size:10px">✅</span><span style="font-size:9px;color:#888">Recebido</span></div>
+          <div style="font-size:15px;font-weight:800;color:#111">R$ 280,00</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:11px 13px;border:0.5px solid #e5e5e5;border-top:2px solid #e24b4a">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><span style="color:#e24b4a;font-size:10px">⚠️</span><span style="font-size:9px;color:#888">Atrasado</span></div>
+          <div style="font-size:15px;font-weight:800;color:#111">R$ 0,00</div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:11px 13px;border:0.5px solid #e5e5e5">
+        <div style="font-size:10px;font-weight:700;color:#111;margin-bottom:8px">Filtrar cobranças</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div><div style="font-size:8px;color:#888;margin-bottom:3px">Mês</div><div style="background:#f8f8f6;border-radius:5px;padding:5px 8px;font-size:8px;color:#111;border:0.5px solid #e5e5e5">abril ⌄</div></div>
+          <div><div style="font-size:8px;color:#888;margin-bottom:3px">Ano</div><div style="background:#f8f8f6;border-radius:5px;padding:5px 8px;font-size:8px;color:#111;border:0.5px solid #e5e5e5">2026</div></div>
+          <div><div style="font-size:8px;color:#888;margin-bottom:3px">Turma</div><div style="background:#f8f8f6;border-radius:5px;padding:5px 8px;font-size:8px;color:#111;border:0.5px solid #e5e5e5">Todas as turmas ⌄</div></div>
+          <div><div style="font-size:8px;color:#888;margin-bottom:3px">Situação</div><div style="background:#f8f8f6;border-radius:5px;padding:5px 8px;font-size:8px;color:#111;border:0.5px solid #e5e5e5">Todas ⌄</div></div>
+        </div>
+      </div>`,
+
+    turmas: `
+      <div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#111">Turmas</div>
+          <div style="font-size:9px;color:#888">2 turma(s) cadastrada(s)</div>
+        </div>
+        <div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Nova Turma</div>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:10px;border:0.5px solid #e5e5e5;margin-bottom:8px">
+        <div style="font-size:9px;font-weight:700;color:#111;margin-bottom:7px">Calendário semanal</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center">
+          <div style="font-size:7px;color:#888;font-weight:600">DOM</div>
+          <div style="font-size:7px;color:#888;font-weight:600">SEG</div>
+          <div style="font-size:7px;color:#888;font-weight:600">TER</div>
+          <div style="font-size:7px;color:#888;font-weight:600">QUA</div>
+          <div></div>
+          <div style="background:#fdf3e0;border-left:2px solid #d49f32;border-radius:4px;padding:4px;text-align:left"><div style="font-size:7px;font-weight:700;color:#111">Futebol Ma…</div><div style="font-size:6px;color:#888">14:00–16:00</div></div>
+          <div style="background:#fdf3e0;border-left:2px solid #d49f32;border-radius:4px;padding:4px;text-align:left"><div style="font-size:7px;font-weight:700;color:#111">Futebol Ma…</div><div style="font-size:6px;color:#888">14:00–15:00</div></div>
+          <div style="background:#e8f0fe;border-left:2px solid #378ADD;border-radius:4px;padding:4px;text-align:left"><div style="font-size:7px;font-weight:700;color:#111">Futsal Unio…</div><div style="font-size:6px;color:#888">08:00–09:00</div></div>
+          <div></div>
+          <div style="background:#e8f0fe;border-left:2px solid #378ADD;border-radius:4px;padding:4px;text-align:left"><div style="font-size:7px;font-weight:700;color:#111">Futsal Unio…</div><div style="font-size:6px;color:#888">08:00–09:00</div></div>
+          <div></div><div></div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;overflow:hidden">
+        <div style="padding:10px 12px;border-bottom:0.5px solid #f0f0f0;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">F</div>
+          <div style="flex:1">
+            <div style="font-size:10px;font-weight:700;color:#111">Futebol Maria Luiza</div>
+            <div style="font-size:8px;color:#888">Futebol · Ter, Qui, Seg · 14:00–15:00</div>
+          </div>
+          <div style="text-align:right"><div style="font-size:9px;font-weight:800;color:#111">R$ 140,00/mês</div><div style="font-size:7px;color:#888">R$ 140 × 1 alunos</div></div>
+        </div>
+        <div style="padding:10px 12px;display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#378ADD;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0">F</div>
+          <div style="flex:1">
+            <div style="font-size:10px;font-weight:700;color:#111">Futsal Unioeste</div>
+            <div style="font-size:8px;color:#888">Futsal · Seg, Qua, Sex, Qui · 08:00–09:00</div>
+          </div>
+          <div style="text-align:right"><div style="font-size:9px;font-weight:800;color:#111">R$ 560,00/mês</div><div style="font-size:7px;color:#888">R$ 140 × 4 alunos</div></div>
+        </div>
+      </div>`,
+
+    experimentais: `
+      <div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#111">Aulas Experimentais</div>
+          <div style="font-size:9px;color:#888">Agende e acompanhe aulas de teste</div>
+        </div>
+        <div style="background:#d49f32;color:#000;font-size:9px;font-weight:700;padding:5px 10px;border-radius:7px">+ Agendar Experimental</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px">
+        <div style="background:#fff;border-radius:10px;padding:10px;border:0.5px solid #e5e5e5;border-top:2px solid #d49f32">
+          <div style="font-size:8px;color:#888;margin-bottom:4px">Agendadas</div>
+          <div style="font-size:18px;font-weight:800;color:#111">0</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:10px;border:0.5px solid #e5e5e5;border-top:2px solid #2e7d32">
+          <div style="font-size:8px;color:#888;margin-bottom:4px">Realizadas</div>
+          <div style="font-size:18px;font-weight:800;color:#111">0</div>
+        </div>
+        <div style="background:#fff;border-radius:10px;padding:10px;border:0.5px solid #e5e5e5;border-top:2px solid #378ADD">
+          <div style="font-size:8px;color:#888;margin-bottom:4px">Convertidas</div>
+          <div style="font-size:18px;font-weight:800;color:#111">1</div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:10px;border:0.5px solid #e5e5e5;padding:10px">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div style="width:28px;height:28px;border-radius:50%;background:#d49f32;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0">J</div>
+          <div style="flex:1">
+            <div style="font-size:11px;font-weight:700;color:#111">Joao</div>
+            <div style="font-size:8px;color:#888">Futsal · 14/04/2026 às 11:00</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">
+            <span style="color:#378ADD;font-size:8px;font-weight:600">convertida</span>
+            <div style="background:#d49f32;color:#000;font-size:8px;font-weight:700;padding:4px 8px;border-radius:6px">WhatsApp</div>
+          </div>
+        </div>
+      </div>`
   };
+
   var cur = 0, DURATION = 6000, timer = null;
   function activate(i, manual) {
     document.querySelectorAll('.mod-item').forEach(function(el){ el.classList.remove('active'); });
