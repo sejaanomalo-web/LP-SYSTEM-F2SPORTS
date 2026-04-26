@@ -7,6 +7,8 @@
 <link rel="icon" type="image/png" href="only-logo-f2-removebg-preview.png">
 <link rel="apple-touch-icon" href="only-logo-f2-removebg-preview.png">
 <meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://payfast.greenn.com.br">
+<link rel="dns-prefetch" href="https://payfast.greenn.com.br">
 <style>@media(max-width:768px){body{padding-bottom:60px}}</style>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0 }
@@ -27,6 +29,17 @@
   img { max-width: 100% }
   a { text-decoration: none; color: inherit }
   button { font-family: inherit }
+  /* Focus visible para acessibilidade (teclado) */
+  .btn-hero-main:focus-visible,
+  .btn-hero-secondary:focus-visible,
+  .plan-btn:focus-visible,
+  .cta-btn-gold:focus-visible,
+  #toggle-mensal:focus-visible,
+  #toggle-anual:focus-visible,
+  #sticky-cta button:focus-visible {
+    outline: 3px solid #d49f32;
+    outline-offset: 3px;
+  }
 
   /* Navbar */
   .navbar {
@@ -871,7 +884,7 @@
     font-size: 14px;
   }
   .modalidades-carousel-track {
-    animation-duration: 16s;
+    animation-duration: 8s;
     gap: 10px;
   }
   #modalidades h2 {
@@ -897,7 +910,7 @@
 <header style="display:flex;justify-content:center;padding:0;background:#fff">
   <div style="background:linear-gradient(135deg,#7a5a00 0%,#d49f32 15%,#fde4a8 30%,#d49f32 48%,#8a6a1c 62%,#d49f32 78%,#f4d98a 92%,#a67c00 100%);padding:0 2px 2px;border-bottom-left-radius:14px;border-bottom-right-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.18)">
     <div style="background:#000;padding:10px 20px 12px;border-bottom-left-radius:12px;border-bottom-right-radius:12px;display:flex;flex-direction:row;align-items:center;gap:10px">
-      <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" style="height:28px;width:28px;object-fit:contain;display:block">
+      <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" width="28" height="28" decoding="async" style="height:28px;width:28px;object-fit:contain;display:block">
       <span style="font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;line-height:1">F2 Sports</span>
     </div>
   </div>
@@ -940,7 +953,7 @@
       <p style="font-size:15px;color:#777;line-height:1.7;max-width:380px">Pessoas que nunca tinham usado sistema nenhum, hoje fazem a chamada, cobram os responsáveis e fecham o mês pelo celular. A gente te ajuda no início, depois vira rotina.</p>
     </div>
     <div style="display:flex;justify-content:center">
-      <img src="print-whats-f2-suporte.jpeg" alt="Print de conversa de suporte da F2 Sports no WhatsApp" style="max-width:360px;width:100%;height:auto;border-radius:16px;display:block;box-shadow:0 8px 24px rgba(0,0,0,0.2)">
+      <img src="print-whats-f2-suporte.jpeg" alt="Print de conversa de suporte da F2 Sports no WhatsApp" width="750" height="466" loading="lazy" decoding="async" style="max-width:360px;width:100%;height:auto;border-radius:16px;display:block;box-shadow:0 8px 24px rgba(0,0,0,0.2)">
     </div>
   </div>
 </section>
@@ -977,7 +990,7 @@
         </div>
         <div style="background:#000;padding:10px 16px;display:flex;justify-content:space-between;align-items:center">
           <div style="display:flex;align-items:center;gap:8px">
-            <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" style="width:22px;height:22px;object-fit:contain;border-radius:4px">
+            <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:contain;border-radius:4px">
             <span style="color:#fff;font-size:11px;font-weight:700">F2 Sports</span>
           </div>
           <span style="color:#d49f32;font-size:10px;font-weight:500">Sua Escolinha</span>
@@ -1016,17 +1029,17 @@
     <div class="modalidades-carousel-track">
 
       <!-- PRIMEIRO BLOCO: 10 cards (5 modalidades x 2 para loop infinito) -->
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('campo.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('campo.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">FUTEBOL</span>
       </a>
 
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('futsal.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('futsal.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">FUTSAL</span>
       </a>
 
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('volei.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('volei.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">VÔLEI</span>
       </a>
@@ -1062,17 +1075,17 @@
       </a>
 
       <!-- SEGUNDO BLOCO: duplicata exata do primeiro (necessário para loop infinito sem corte visual) -->
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('campo.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('campo.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">FUTEBOL</span>
       </a>
 
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('futsal.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('futsal.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">FUTSAL</span>
       </a>
 
-      <a href="#planos" class="mod-carousel-card" style="background-image:url('volei.png')">
+      <a href="#planos" class="mod-carousel-card" style="background-image:url('volei.jpg')">
         <div class="mod-carousel-overlay"></div>
         <span class="mod-carousel-label">VÔLEI</span>
       </a>
@@ -1307,7 +1320,7 @@
 <footer style="background:#000;padding:32px 24px">
   <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
     <div style="display:flex;align-items:center;gap:8px">
-      <img src="https://sistemaf2sports.com.br/logo-f2.png" alt="F2 Sports" style="height:28px;width:auto;object-fit:contain" onerror="this.style.display='none'">
+      <img src="only-logo-f2-removebg-preview.png" alt="F2 Sports" width="28" height="28" loading="lazy" decoding="async" style="height:28px;width:28px;object-fit:contain">
       <span style="color:#fff;font-size:15px;font-weight:700">F2 Sports</span>
     </div>
     <div style="color:#555;font-size:12px">© 2026 F2 Sports</div>
@@ -1451,7 +1464,18 @@
     stickyCta.style.bottom = (offsetBottom > 0 ? offsetBottom : 0) + 'px';
   }
 
-  window.addEventListener('scroll', checkVisibility);
+  // throttle via rAF — limita chamadas a 1 por frame
+  var scrollTicking = false;
+  function onScroll(){
+    if(!scrollTicking){
+      requestAnimationFrame(function(){
+        checkVisibility();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
   window.addEventListener('resize', checkVisibility);
 
   if(window.visualViewport){
