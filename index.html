@@ -31,6 +31,37 @@
 <meta name="twitter:description" content="Cadastre alunos, controle pagamentos PIX e faça a chamada pelo celular. Simples como o WhatsApp.">
 <meta name="twitter:image" content="https://lp-system-f2-sports.vercel.app/only-logo-f2-removebg-preview.png">
 
+<!--
+  ════════════════════════════════════════════════════════════════
+  TRACKING — GA4 e Meta Pixel
+  ────────────────────────────────────────────────────────────────
+  TODO: Substituir os IDs placeholder pelos reais antes do go-live:
+    1. GA4_MEASUREMENT_ID  → criar em https://analytics.google.com
+    2. META_PIXEL_ID       → criar em https://business.facebook.com
+  Enquanto os IDs estiverem como placeholder, os scripts ficam
+  comentados (não quebram nada). Descomente após preencher.
+  ════════════════════════════════════════════════════════════════
+-->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA4_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA4_MEASUREMENT_ID', { 'anonymize_ip': true });
+</script>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'META_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+-->
+
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
 {
@@ -1205,7 +1236,7 @@
 
 <!-- SEÇÃO 8 — Planos -->
 <section class="plans-section" id="planos">
-  <h2 class="section-title reveal">Escolha o plano ideal para sua <span style="font-weight:800;color:#000;font-style:italic">Escolinha:</span></h2>
+  <h2 class="section-title reveal">Escolha o plano ideal para sua <span style="font-weight:800;color:#000;font-style:italic">ESCOLINHA:</span></h2>
   <p class="section-subtitle">Simples e transparente. Sem taxas escondidas.</p>
   <div class="plans-toggle" style="display:flex;align-items:center;justify-content:center;gap:0;margin:32px auto 40px;background:#f8f8f6;border-radius:40px;padding:4px;width:fit-content;flex-wrap:wrap">
     <button id="toggle-mensal" onclick="setPlano('mensal')" style="padding:10px 28px;border-radius:36px;border:none;cursor:pointer;font-size:14px;font-weight:700;background:#111;color:#fff;transition:all .25s">Mensal</button>
@@ -1476,6 +1507,25 @@
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
   })();
+
+  // Tracking dos botoes de plano (GA4 + Meta Pixel — silencia se nao instalado)
+  document.querySelectorAll('.plan-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.plan-card');
+      var planName = card ? (card.querySelector('.plan-name') || {}).textContent : 'unknown';
+      var price = card ? (card.querySelector('.plan-price') || {}).textContent : '';
+      var priceNum = parseFloat((price || '').replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+      try { if(typeof gtag === 'function'){ gtag('event', 'click_plan_button', { plan_name: planName, price: priceNum }); } } catch(e){}
+      try { if(typeof fbq === 'function'){ fbq('track', 'InitiateCheckout', { value: priceNum, currency: 'BRL', content_name: planName }); } } catch(e){}
+    });
+  });
+  // Tracking do CTA principal
+  document.querySelectorAll('.btn-hero-main, .cta-btn-gold, #sticky-cta button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      try { if(typeof gtag === 'function'){ gtag('event', 'click_cta_main'); } } catch(e){}
+      try { if(typeof fbq === 'function'){ fbq('track', 'Lead'); } } catch(e){}
+    });
+  });
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
