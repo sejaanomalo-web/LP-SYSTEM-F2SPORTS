@@ -811,11 +811,13 @@
   display: flex;
   gap: 14px;
   width: max-content;
-  animation: slideTrack 20s linear infinite;
+  animation: slideTrack 40s linear infinite;
 }
 
-.modalidades-carousel-wrapper:hover .modalidades-carousel-track {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .modalidades-carousel-wrapper:hover .modalidades-carousel-track {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes slideTrack {
