@@ -505,6 +505,18 @@
     color: #000;
     font-weight: 800;
     box-shadow: 0 4px 14px rgba(212, 159, 50, 0.38);
+    position: relative;
+    overflow: hidden;
+  }
+  .plan-btn.gold::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    animation: shine 4.5s ease-in-out infinite;
+    pointer-events: none;
   }
   .plan-btn.gold:hover {
     background: #e0ad48;
