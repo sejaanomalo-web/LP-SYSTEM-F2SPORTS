@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T7MS7SWT');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sistema F2 Sports</title>
@@ -30,37 +37,6 @@
 <meta name="twitter:title" content="F2 Sports — Sistema para escolinhas">
 <meta name="twitter:description" content="Cadastre alunos, controle pagamentos PIX e faça a chamada pelo celular. Simples como o WhatsApp.">
 <meta name="twitter:image" content="https://lp-system-f2-sports.vercel.app/only-logo-f2-removebg-preview.png">
-
-<!--
-  ════════════════════════════════════════════════════════════════
-  TRACKING — GA4 e Meta Pixel
-  ────────────────────────────────────────────────────────────────
-  TODO: Substituir os IDs placeholder pelos reais antes do go-live:
-    1. GA4_MEASUREMENT_ID  → criar em https://analytics.google.com
-    2. META_PIXEL_ID       → criar em https://business.facebook.com
-  Enquanto os IDs estiverem como placeholder, os scripts ficam
-  comentados (não quebram nada). Descomente após preencher.
-  ════════════════════════════════════════════════════════════════
--->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA4_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA4_MEASUREMENT_ID', { 'anonymize_ip': true });
-</script>
-
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'META_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
--->
 
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
@@ -714,6 +690,10 @@ fbq('track', 'PageView');
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7MS7SWT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- SEÇÃO 1 — Etiqueta premium centralizada -->
 <header style="display:flex;justify-content:center;padding:0;background:#fff">
@@ -1214,22 +1194,27 @@ fbq('track', 'PageView');
     document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
   })();
 
-  // Tracking dos botoes de plano (GA4 + Meta Pixel — silencia se nao instalado)
+  // Tracking via Google Tag Manager (dataLayer)
+  // GTM dispara Meta Pixel + GA4 conforme configurado em https://tagmanager.google.com
+  window.dataLayer = window.dataLayer || [];
+
   document.querySelectorAll('.plan-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var card = btn.closest('.plan-card');
       var planName = card ? (card.querySelector('.plan-name') || {}).textContent : 'unknown';
       var price = card ? (card.querySelector('.plan-price') || {}).textContent : '';
       var priceNum = parseFloat((price || '').replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
-      try { if(typeof gtag === 'function'){ gtag('event', 'click_plan_button', { plan_name: planName, price: priceNum }); } } catch(e){}
-      try { if(typeof fbq === 'function'){ fbq('track', 'InitiateCheckout', { value: priceNum, currency: 'BRL', content_name: planName }); } } catch(e){}
+      window.dataLayer.push({
+        event: 'click_plan_button',
+        plan_name: planName,
+        plan_price: priceNum,
+        currency: 'BRL'
+      });
     });
   });
-  // Tracking do CTA principal
   document.querySelectorAll('.btn-hero-main, .cta-btn-gold, #sticky-cta button').forEach(function(btn){
     btn.addEventListener('click', function(){
-      try { if(typeof gtag === 'function'){ gtag('event', 'click_cta_main'); } } catch(e){}
-      try { if(typeof fbq === 'function'){ fbq('track', 'Lead'); } } catch(e){}
+      window.dataLayer.push({ event: 'click_cta_main' });
     });
   });
 
